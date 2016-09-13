@@ -8,8 +8,8 @@ body {
 }
 
 .player {
-  width: 1280px;
-  height: 720px;
+  width: 1920px;
+  height: 1080px;
 }
 
 video {
@@ -56,7 +56,7 @@ video {
 }
 
 #question {
-  
+
 }
 
 .tQuestion {
@@ -69,7 +69,7 @@ video {
 
 .tHelper {
   text-align: center;
-  font-size: 1em;
+  font-size: 1.6em;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 0 4px #000;
@@ -79,7 +79,7 @@ video {
   padding: 0;
   margin: 0;
   margin-top: 2%;
-  
+
   button {
     position: relative;
     appearance: none;
@@ -97,7 +97,7 @@ video {
     box-sizing: border-box;
     padding: 50px;
     padding-left: 100px;
-    
+
     span {
       position: absolute;
       width: 75px;
@@ -109,13 +109,14 @@ video {
       color: #4a90e2;
       font-size: 2.4em;
       background-color: #000;
+      font-weight: bold;
     }
-    
+
     &.selected {
       background-color: #D3D3D3;
       color: #000;
     }
-    
+
     &.hidden {
       opacity: .3;
     }
@@ -131,7 +132,7 @@ video {
 .tResult {
   font-size: 4em;
   text-align: center;
-  
+
   span {
     display: inline-block;
     width: 400px;
@@ -148,22 +149,22 @@ video {
   bottom: 5px;
   width: 100%;
   z-index: 2;
-  
+
   > div {
     position: absolute;
     bottom: 0;
     width: 4px;
     height: 22px;
     background-color: #fff;
-    
+
     &.true {
       background-color: #7ED321;
     }
-    
+
     &.false {
       background-color: red;
     }
-    
+
     &.active {
       height: 50px;
     }
