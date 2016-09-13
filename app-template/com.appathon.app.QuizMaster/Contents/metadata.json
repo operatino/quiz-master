@@ -1,0 +1,19 @@
+{
+	"identifier": "com.appathon.app.QuizMaster",
+	"name": "Quiz Master",
+	"version": "0.0.1",
+	"author": "ProjectVenus",
+	"organization": "ProjectVenus",
+	"copyright": "ProjectVenus",
+	"description": "Video quiz game based on MyPrime video catalogue. Follow pre-defined quizes and create your own to challenge your friends!",
+	"keywords": "games, quiz, social, vod, myprime",
+	"categories": [
+		"games"
+	],
+	"scripts": "Javascript/init.js",
+	"images": {
+		"icon": {
+			"192x192": "Image/Icon.png"
+		}
+	}
+}
