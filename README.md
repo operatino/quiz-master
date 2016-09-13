@@ -2,7 +2,7 @@
 
 https://operatino.github.io/quiz-master/
 
-## Instructions
+## Setup
 
 ```
 git clone repo
@@ -12,10 +12,18 @@ npm start
 open localhost:8080
 ```
 
-for dev
+## Develop
 
 ```
 npm run dev
+```
+
+## Build app
+
+On UNIX system
+
+```
+./build-app.sh
 ```
 
 ## Deploy
