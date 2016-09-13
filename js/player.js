@@ -16,8 +16,10 @@
     this._config,
     this._template,
     this._qBlock,
+    this._listenButtons = false,
     this._score = 0,
     this._stored = false,
+    this._isPlaying = true,
     this._aBlock;
   };
   
@@ -73,9 +75,7 @@
     
     Object.assign(this._config, config);
     
-    this.startPlayback();
-    
-    return this;
+    return this.startPlayback().setKeyEvents();
   };
   
   Player.prototype.startPlayback = function () {
@@ -101,21 +101,24 @@
     return this;
   };
   
-  Player.prototype.printQbar = function () {
+  Player.prototype.printQbar = function (doExpand) {
     var duration = Math.floor(this._video.duration);
     var _this = this;
     
     var qBarObj = Object.keys(this._questions).map(function (id) {
       var question = _this._questions[id];
-      console.log(id, question.offset, duration)
       return {
         time: id,
         isCorrect: question.isCorrect,
-        left: (Number(id) / duration) * 100
+        left: (Number(id) / duration) * 100,
+        isActive: (doExpand && String(_this._activeQuestion) === String(id) ? true : false)
       };
     });
+    var obj = {
+      answers: qBarObj
+    };
     
-    var qBarHTML = this._qBarTemplate({answers: qBarObj});
+    var qBarHTML = this._qBarTemplate(obj);
     this._qBar.innerHTML = qBarHTML;
   };
   
@@ -123,7 +126,8 @@
     var _currentTime = String(currentTime);
     
     if (!this._qBarPrinted) {
-      this.printQbar();
+      this.printQbar(false);
+      this._qBarPrinted = true;
     }
     
     if (this._questions[_currentTime]) {
@@ -144,72 +148,110 @@
       }
     }
     
-    if (Object.keys(this._answers).length === Object.keys(this._questions).length && !this._stored) {
-      return this.storeResults();
-    }
-    
     return this;
   };
   
   Player.prototype.storeResults = function () {
     this._stored = true;
     var _this = this;
-    Score.setScore('1', 'TestUsername', Object.keys(this._questions).map(function (id) {
-      var question = _this._questions[id];
-      return {
-        name: question.question,
-        score: question.isCorrect ? 1 : 0
-      };
-    }));
+    setTimeout(function () {
+      Score.clear();
+      Score.setScore('1', 'TestUsername', Object.keys(_this._questions).map(function (id) {
+        var question = _this._questions[id];
+        return {
+          name: question.question,
+          score: question.isCorrect ? 1 : 0
+        };
+      }));
+    }, 1000);
   };
   
   Player.prototype.showQuestion = function (time, question) {
     question.finished = false;
     question.isCorrect = undefined;
     question.score = 0;
+    this._listenButtons = true;
     var questionHTML = this._template(question);
     
     this._activeQuestion = question.id;
     this._qBlock.innerHTML = questionHTML;
     this._qBlock.style.display = 'block';
     this._video.pause();
-    return this.setQuestionsEvents();
+    return this.printQbar(true);
   };
   
-  Player.prototype.setQuestionsEvents = function () {
-    
-    for (var i = 0; i < 4; i++) {
-      document.getElementById('answer-' + i).addEventListener('click', this.handleAnswerSelection.bind(this));
-    }
+  Player.prototype.setKeyEvents = function () {
+    document.body.addEventListener('keyup', this.handleKeyUp.bind(this));
     return this;
   };
   
-  Player.prototype.removeQuestionsEvents = function () {
-    
-    for (var i = 0; i < 4; i++) {
-      document.getElementById('answer-' + i).removeEventListener('click', this.handleAnswerSelection.bind(this));
-    }
-    return this;
+  Player.prototype.redirectTo = function (url) {
+    document.location.href = url;
   };
   
-  Player.prototype.handleAnswerSelection = function (event) {
-    var element = event.target;
-    var answer = element.getAttribute('rel');
+  Player.prototype.playPause = function () {
+    if (this._isPlaying) {
+      this._video.pause();
+      this._isPlaying = false;
+      return this;
+    }
+    
+    this._video.play();
+    this._isPlaying = true;
+    
+    return true;
+  };
+  
+  Player.prototype.handleKeyUp = function (event) {
+    
+    var key = event.which || event.keyCode;
+    
+    if (key === 413) {
+      return this.redirectTo('end.html');
+    }
+    
+    if (key === 415) {
+      return this.playPause();
+    }
+    
+    if (key === 461) {
+      return this.redirectTo('index.html');
+    }
+
+    if (this._listenButtons) {
+      var answer;
+      
+      if (key === 49) {
+        answer = 0;
+      } else if (key === 50) {
+        answer = 1;
+      } else if (key === 51) {
+        answer = 2;
+      } else if (key === 52) {
+        answer = 3;
+      }
+      
+      var element = document.getElementById('answer-' + answer);
+      
+      return this.handleResponse(element, answer);
+    }
+  };
+  
+  Player.prototype.handleResponse = function (element, answer) {
     var _this = this;
-    
     this._answers[String(this._activeQuestion)] = answer;
-    
+
     element.classList.add('selected');
-    
+
     setTimeout(function() {
       _this.hideQuestions();
     }, 2000);
   };
   
   Player.prototype.hideQuestions = function () {
-    this.removeQuestionsEvents();
     this._qBlock.style.display = 'none';
     this._qBlock.innerHTML = '';
+    this._listenButtons = false;
     
     this._video.play();
     
@@ -244,7 +286,11 @@
     this._aBlock.style.display = 'block';
     
     setTimeout(function () {
-      _this.hideAnswer().printQbar();
+      _this.hideAnswer().printQbar(false);
+    
+      if (Object.keys(_this._answers).length === Object.keys(_this._questions).length && !_this._stored) {
+        _this.storeResults();
+      }
     }, 5000)
     
     return this;
