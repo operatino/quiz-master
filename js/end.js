@@ -32,7 +32,7 @@
 
   $(window).keypress(function (e) {
     if (e.keyCode === 0 || e.keyCode === 32 || e.keyCode === 461 || e.keyCode === 8) {
-      e.preventDefault()
+      e.preventDefault();
       window.location.href = './index.html';
     }
   });
