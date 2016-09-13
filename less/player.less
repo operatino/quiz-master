@@ -76,13 +76,16 @@ video {
 }
 
 .tQuestions {
-  list-style: none;
   padding: 0;
   margin: 0;
-  display: block;
   margin-top: 2%;
   
-  li {
+  button {
+    appearance: none;
+    border: 0;
+    text-align: left;
+    color: #fff;
+    font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
     display: block;
     float: left;
     width: 48%;
@@ -151,4 +154,28 @@ video {
 
 .tScore {
   margin-bottom: 25px;
+}
+
+.qBar {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  z-index: 2;
+  
+  > div {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    height: 22px;
+    background-color: #fff;
+    
+    &.true {
+      background-color: #7ED321;
+    }
+    
+    &.false {
+      background-color: red;
+    }
+  }
 }
