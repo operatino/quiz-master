@@ -23,6 +23,25 @@
 .loading .tile {
   opacity: 0;
 }
+.tile .new {
+  display: none;
+}
+.tile.challenge .new {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  top: 15px;
+  left: 15px;
+  border-radius: 20px;
+  background-color: #f00;
+  box-shadow: 0 0 10px yellow;
+  font-size: 10px;
+  color: #fff;
+}
 .tile--poster {
   width: 200px;
   height: 264px;
