@@ -50,7 +50,7 @@
 
     image.src = video.video.imageLink.href;
     title.innerHTML = video.video.title;
-    template.href = 'video.html?videoId=' + video.id;
+    template.href = 'player.html?videoId=' + video.id;
 
     catalogEl.appendChild(template);
 
