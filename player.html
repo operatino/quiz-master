@@ -36,23 +36,24 @@
     <div class='tQuestion'><%=question%></div>
 
     <% if (!finished) { %>
-      <div class='tHelper'>Press the right color on your remote</div>
+      <div class='tHelper'>Press the correct number on your remote</div>
     <% } %>
 
 
     <div class='tQuestions'>
       <% for (var i=0; i<answers.length; i++) { %>
-        <button class='answer-<%=i%> <%=(finished && i != correctAnswer ? 'hidden' : '')%>' id='answer-<%=i%>' rel='<%=i%>'><%=answers[i]%></button>
+        <button class='answer-<%=i%> <%=(finished && i != correctAnswer ? 'hidden' : '')%>' id='answer-<%=i%>' rel='<%=i%>'>
+          <span><%=(i + 1)%></span><%=answers[i]%></button>
       <% } %>
     </div>
   </script>
 
   <script type='text/html' id='qbar-template' style='display:none'>
     <% for (var i=0; i<answers.length; i++) { %>
-      <div class='<%=answers[i].isCorrect%>' style='left: <%=answers[i].left%>%'></div>
+      <div class='<%=answers[i].isCorrect%> <%=(answers[i].isActive ? 'active' : '')%>' style='left: <%=answers[i].left%>%'></div>
     <% } %>
   </script>
-
+  
   <script src="lib/maf.js"></script>
   <script src='./node_modules/lodash/lodash.min.js'></script>
   <script src='./js/store.js'></script>
