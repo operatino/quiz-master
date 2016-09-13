@@ -153,17 +153,14 @@ table {
   font-size: 0;
   overflow: hidden;
 }
-.tile:hover,
-.tile:focus {
+.tile.active {
   outline: none;
 }
-.tile:hover .tile--title,
-.tile:focus .tile--title {
+.tile.active .tile--title {
   background: #999;
   color: #000;
 }
-.tile:hover .tile--poster,
-.tile:focus .tile--poster {
+.tile.active .tile--poster {
   transform: scale(1.01) translateY(-2px);
 }
 .tile--poster {

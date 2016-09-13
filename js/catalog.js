@@ -3,14 +3,8 @@
   var catalogEl = document.querySelector('.catalog');
 
   var init = function () {
-    focusFirstTile();
     getData();
   };
-  var focusFirstTile = function() {
-    var tile = document.querySelector('.tile');
-    tile.focus();
-  };
-// endOfAvailability,entitlementCodes,id,imi,selfLink,startOfAvailability,video.selfLink,video.ageRating,video.cast,video.category,video.crid,video.directors,video.episode,video.id,video.imageLink,video.imdbRating,video.infostradaIdentifier,video.language,video.moreLink,video.redbeeIdentifier,video.selfLink,video.seriesTitle,video.shortSynopsis,video.statistics,video.subcategory,video.synopsis,video.title,video.writers,video.year
 
   var getData = function () {
     $.ajax('https://api.lgi.io/kraken/v2/schedule/data/NL/vods?limit=32&video.category=speelfilm&video.subcategory=drama&fields=endOfAvailability,entitlementCodes,id,imi,lang,selfLink,startOfAvailability,video.selfLink,video.title,video.imageLink,video.category,video.imdbRating,video.subcategory', {
@@ -24,6 +18,7 @@
 
   var handleGetDataComplete = function (data) {
     drawTiles(data.responseJSON.data);
+    window.Nav.init('a.tile', 6);
   };
 
   var drawTiles = function (vods) {
