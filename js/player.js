@@ -76,8 +76,6 @@
 
     Object.assign(this._config, config);
 
-    Score.install();
-
     return this.startPlayback().setKeyEvents();
   };
 
@@ -167,6 +165,7 @@
     var _this = this;
 
     setTimeout(function () {
+      Score.install();
       Score.setScore(1, Score.getFakeUserName(), Object.keys(_this._questions).map(function (id) {
         var question = _this._questions[id];
         return {

@@ -9,6 +9,7 @@
     "build": "less-cli ./css",
     "build-app": "npm install && npm run build && ./build-app.sh",
     "dev": "watch 'npm run build' ./css",
+    "dev2": "watch ./css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

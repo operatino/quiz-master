@@ -358,7 +358,7 @@ video {
 }
 .results {
   position: absolute;
-  top: 400px;
+  top: 210px;
   left: 0;
   right: 0;
   width: 900px;
@@ -451,4 +451,7 @@ body {
   color: #fff;
   padding-left: 10px;
   margin: 15px 0 20px;
+}
+.hidden {
+  display: none;
 }
