@@ -1,6 +1,10 @@
 var SCORE_KEY = 'quiz';
 var Score = {
 
+  getFakeUserName: function() {
+    return 'TestUsername'
+  },
+
   install: function() {
     Score.clear();
     Score.setScore(1, 'Phil B', [{

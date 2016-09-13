@@ -75,7 +75,7 @@
     Object.assign(this._config, config);
 
     Score.install();
-    
+
     return this.startPlayback().setKeyEvents();
   };
 
@@ -109,7 +109,7 @@
     this.checkQuestion(currentTime);
     return this;
   };
-  
+
   Player.prototype.printQbar = function (doExpand) {
     var duration = Math.floor(this._video.duration);
     var _this = this;
@@ -123,11 +123,11 @@
         isActive: (doExpand && String(_this._activeQuestion) === String(id) ? true : false)
       };
     });
-    
+
 
     var qBarHTML = this._qBarTemplate({answers: qBarObj});
     this._qBar.innerHTML = qBarHTML;
-    
+
     return this;
   };
 
@@ -164,7 +164,7 @@
     var _this = this;
 
     setTimeout(function () {
-      Score.setScore('1', 'TestUsername', Object.keys(_this._questions).map(function (id) {
+      Score.setScore(1, Score.getFakeUserName(), Object.keys(_this._questions).map(function (id) {
         var question = _this._questions[id];
         return {
           name: question.question,
@@ -187,48 +187,48 @@
     this._video.pause();
     return this.printQbar(true);
   };
-  
+
   Player.prototype.setKeyEvents = function () {
     document.body.addEventListener('keyup', this.handleKeyUp.bind(this));
     return this;
   };
-  
+
   Player.prototype.redirectTo = function (url) {
     window.location.href = url;
   };
-  
+
   Player.prototype.playPause = function () {
     if (this._isPlaying) {
       this._video.pause();
       this._isPlaying = false;
       return this;
     }
-    
+
     this._video.play();
     this._isPlaying = true;
-    
+
     return true;
   };
-  
+
   Player.prototype.handleKeyUp = function (event) {
-    
+
     var key = event.which || event.keyCode;
-    
+
     if (key === 413) {
       return this.redirectTo('end.html');
     }
-    
+
     if (key === 415) {
       return this.playPause();
     }
-    
+
     if (key === 461) {
       return this.redirectTo('index.html');
     }
 
     if (this._listenButtons) {
       var answer;
-      
+
       if (key === 49) {
         answer = 0;
       } else if (key === 50) {
@@ -238,17 +238,17 @@
       } else if (key === 52) {
         answer = 3;
       }
-      
+
       if (typeof answer === 'number') {
         var element = document.getElementById('answer-' + answer);
-      
+
         return this.handleResponse(element, answer);
       }
     }
-    
+
     return this;
   };
-  
+
   Player.prototype.handleResponse = function (element, answer) {
     var _this = this;
     this._answers[String(this._activeQuestion)] = answer;
@@ -298,7 +298,7 @@
 
     setTimeout(function () {
       _this.hideAnswer().printQbar(false);
-    
+
       if (Object.keys(_this._answers).length === Object.keys(_this._questions).length && !_this._stored) {
         _this.storeResults();
       }
