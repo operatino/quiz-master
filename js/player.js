@@ -22,6 +22,8 @@
     this._isPlaying = true,
     this._aBlock;
     this._progressTimeout;
+    this._warning;
+    this._warningTime;
   };
 
   Player.prototype.setDefaultValues = function () {
@@ -45,7 +47,8 @@
     this._qBlock = document.getElementById("question");
     this._aBlock = document.getElementById("answer");
     this._progressTimeout = document.getElementById("progress-timeout");
-
+    this._warning = document.querySelector(".question-upcoming-notification");
+    this._warningTime = this._warning.querySelector(".time");
 
     return this;
   };
@@ -136,10 +139,15 @@
 
   Player.prototype.checkQuestion = function (currentTime) {
     var _currentTime = String(currentTime);
+    var warningTimeout = 3;
 
     if (!this._qBarPrinted) {
       this.printQbar(false);
       this._qBarPrinted = true;
+    }
+
+    if (this._questions[String(currentTime + warningTimeout)]) {
+      return this.showWarning(warningTimeout);
     }
 
     if (this._questions[_currentTime]) {
@@ -147,6 +155,7 @@
 
       if (!question.wasShown) {
         question.wasShown = true;
+        this.hideWarning();
         return this.showQuestion(_currentTime, question);
       }
     }
@@ -160,6 +169,24 @@
       }
     }
     return this;
+  };
+
+  Player.prototype.showWarning = function (timeout) {
+    this._warning.classList.remove('hidden');
+    this._warningTime.innerHTML = timeout;
+
+    var _this = this;
+    clearInterval(_this.warningTextInterval);
+    this.warningTextInterval = setInterval(function() {
+      _this._warningTime.innerHTML = Number(_this._warningTime.innerHTML) - 1;
+    }, 1000);
+
+    this.warningTextTimeout = setTimeout(function() {
+      clearInterval(_this.warningTextInterval);
+    }, (timeout * 1000) - 500)
+  };
+  Player.prototype.hideWarning = function () {
+    this._warning.classList.add('hidden');
   };
 
   Player.prototype.storeResults = function () {
@@ -278,7 +305,7 @@
   Player.prototype.handleResponse = function (element, answer) {
     var _this = this;
     this._answers[String(this._activeQuestion)] = answer;
-    var elements = document.querySelectorAll('[class^=answer');
+    var elements = document.querySelectorAll('[class^=answer]');
     for (var i = 0, limit = elements.length; i < limit; i++) {
       elements[i].classList.remove('selected');
     }
