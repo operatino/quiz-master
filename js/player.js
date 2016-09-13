@@ -278,7 +278,7 @@
   Player.prototype.handleResponse = function (element, answer) {
     var _this = this;
     this._answers[String(this._activeQuestion)] = answer;
-    var elements = document.querySelectorAll('[class^=answer');
+    var elements = document.querySelectorAll('[class^=answer]');
     for (var i = 0, limit = elements.length; i < limit; i++) {
       elements[i].classList.remove('selected');
     }
