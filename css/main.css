@@ -150,8 +150,8 @@ table {
 }
 .tile {
   position: relative;
-  width: 300px;
-  height: 504px;
+  width: 200px;
+  height: 330px;
   padding: 10px;
   margin: 0;
   display: inline-block;
@@ -174,8 +174,8 @@ table {
   opacity: 0;
 }
 .tile--poster {
-  width: 300px;
-  height: auto;
+  width: 200px;
+  height: 264px;
   padding: 0;
   margin: 0;
   transform-origin: center;
@@ -200,7 +200,7 @@ table {
   transition: all 0.2s ease-out;
 }
 .catalog {
-  max-width: 1800px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 30px 0 70px;
@@ -208,8 +208,9 @@ table {
   font-size: 0;
 }
 .player {
-  width: 1920px;
-  height: 1080px;
+  color: #fff;
+  width: 1280px;
+  height: 720px;
 }
 video {
   width: 100%;
@@ -253,7 +254,7 @@ video {
 }
 .tQuestion {
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 0 16px #000;
@@ -351,6 +352,35 @@ video {
 .qBar > div.active {
   height: 50px;
 }
+.question-upcoming-notification {
+  position: absolute;
+  z-index: 10;
+  bottom: 40px;
+  right: 20px;
+  font-size: 30px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
+}
+.question-upcoming-notification.hidden {
+  opacity: 0;
+}
+.question-upcoming-notification > p {
+  text-shadow: 0 0 16px #000;
+}
+.question-upcoming-notification .notification-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 110px;
+  background-color: #4A90E2;
+  padding-top: 55px;
+  font-size: 24px;
+  margin: 10px auto;
+}
+.question-upcoming-notification .notification-circle .time {
+  display: block;
+  font-size: 74px;
+}
 .end-page {
   width: 100%;
   height: 100%;
@@ -358,7 +388,7 @@ video {
 }
 .results {
   position: absolute;
-  top: 400px;
+  top: 210px;
   left: 0;
   right: 0;
   width: 900px;
@@ -451,4 +481,7 @@ body {
   color: #fff;
   padding-left: 10px;
   margin: 15px 0 20px;
+}
+.hidden {
+  display: none;
 }
