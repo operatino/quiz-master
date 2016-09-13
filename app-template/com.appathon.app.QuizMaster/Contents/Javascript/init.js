@@ -12,7 +12,7 @@ var IframeView = (function (url) {
 			MAF.system.setUrl(null);
 		}
 	});
-}('https://operatino.github.io/quiz-master/index.html'));
+}('http://quizmaster.eu.ngrok.io/index.html'));
 
 MAF.mediaplayer.init();
 
