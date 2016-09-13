@@ -5,6 +5,7 @@ script: npm install && npm run build
 after_success: npm run gh-pages-travis
 env:
   global:
+    - SSH_KEY="id_rsa"
     - GIT_NAME="QuizMaster Bot"
     - SOURCE_DIR="./"
     - DEPLOY_BRANCH="master"
