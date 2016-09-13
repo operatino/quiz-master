@@ -2,7 +2,8 @@ var SCORE_KEY = 'quiz';
 var Score = {
 
   install: function() {
-    Score.setScore(1, 'Phil', [{
+    Score.clear();
+    Score.setScore(1, 'Phil B', [{
       name: 'Q1',
       score: 1
     },{
@@ -14,12 +15,73 @@ var Score = {
     },{
       name: 'Q4',
       score: 1
-    }])
+    },{
+      name: 'Q4',
+      score: 0
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 0
+    }]);
+    Score.setScore(1, 'Daniel S', [{
+      name: 'Q1',
+      score: 1
+    },{
+      name: 'Q2',
+      score: 1
+    },{
+      name: 'Q3',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 0
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 0
+    }]);
+    Score.setScore(1, 'Elvin F', [{
+      name: 'Q1',
+      score: 1
+    },{
+      name: 'Q2',
+      score: 1
+    },{
+      name: 'Q3',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 1
+    },{
+      name: 'Q4',
+      score: 1
+    }]);
   },
 
   clear: function() {
     localStorage.removeItem(SCORE_KEY);
-    Score.install();
   },
 
   getAnswersByUser: function(id, name) {
