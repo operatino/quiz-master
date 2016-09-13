@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Player</title>
-  <link rel='stylesheet' href='./css/player.css' />
+  <link rel='stylesheet' href='css/player.css' />
 </head>
 <body>
   <div class='player'>
-    
+
     <video
       id='player'
       src=''>
     </video>
     
     <div class="qBar" id="q-bar"></div>
-    
     <div type="range" class='seekBar' id="seek-bar" />
       <div class='progress' id='progress'></div>
     </div>
-  
+
     <div id="question"></div>
     <div id="answer"></div>
 
   </div>
-  
+
   <script type='text/html' id='question-template' style='display:none'>
     <% if (finished) { %>
       <div class='tUr'>You are</div>
@@ -31,14 +30,15 @@
         <span class='<%=(!isCorrect ? 'selected' : '')%>'>Right</span>
         <span class='<%=(isCorrect ? 'selected' : '')%>'>Wrong</span>
       </div>
-      
+
       <div class='tScore'>Score: <%=score%></div>
     <% } %>
     <div class='tQuestion'><%=question%></div>
-    
+
     <% if (!finished) { %>
       <div class='tHelper'>Press the right color on your remote</div>
     <% } %>
+
     
     <div class='tQuestions'>
       <% for (var i=0; i<answers.length; i++) { %>
@@ -53,15 +53,14 @@
     <% } %>
   </script>
 </body>
-
-<script type="text/javascript" src='https://raw.githubusercontent.com/lodash/lodash/4.15.0/dist/lodash.min.js'></script>
-<script type="text/javascript" src='./js/player.js'></script>
+<script type="text/javascript" src='./node_modules/lodash/lodash.min.js'></script>
 <script type="text/javascript" src='./js/store.js'></script>
+<script type="text/javascript" src='./js/player.js'></script>
 <script>
-var url = 'https://sourcejs.com/tmp/demo-movie.mp4';
+var url = 'http://d.pr/v/19np2+';
 var questions = {
-  5: {
-    offset: 3,
+  6: {
+    offset: 4,
     question: 'What did T-800 ask?',
     answers: [
       'The route',
@@ -71,17 +70,29 @@ var questions = {
     ],
     correctAnswer: 3
   },
-  
-  100: {
-    offset: 3,
-    question: '2: What did T-800 ask?',
+
+  30: {
+    offset: 5,
+    question: 'John wants T-800',
     answers: [
-      '2: The route',
-      '2: Money',
-      '2: Sunglasses',
-      '2: Clothes, boots, motorcycle'
+      'brings an ice-cream',
+      'stays on one foot',
+      'sings a song',
+      'save Sarah'
     ],
-    correctAnswer: 3
+    correctAnswer: 1
+  },
+  
+  45: {
+    offset: 5,
+    question: 'What T-800 is gonna to do?',
+    answers: [
+      'Smile',
+      'Drink',
+      'Cry',
+      'High-five'
+    ],
+    correctAnswer: 0
   }
 };
 window.Player.init(url, questions);

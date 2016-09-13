@@ -102,16 +102,16 @@
   };
   
   Player.prototype.printQbar = function () {
-    var duration = Math.ceil(this._video.duration);
+    var duration = Math.floor(this._video.duration);
     var _this = this;
     
     var qBarObj = Object.keys(this._questions).map(function (id) {
       var question = _this._questions[id];
-      
+      console.log(id, question.offset, duration)
       return {
         time: id,
         isCorrect: question.isCorrect,
-        left: ((Number(id) - question.offset) / duration) * 100
+        left: (Number(id) / duration) * 100
       };
     });
     
