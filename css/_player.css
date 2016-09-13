@@ -1,6 +1,6 @@
 .player {
-  width: 1920px;
-  height: 1080px;
+  width: 1280px;
+  height: 720px;
 }
 video {
   width: 100%;
@@ -44,7 +44,7 @@ video {
 }
 .tQuestion {
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 0 16px #000;

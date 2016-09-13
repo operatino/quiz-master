@@ -150,8 +150,8 @@ table {
 }
 .tile {
   position: relative;
-  width: 300px;
-  height: 504px;
+  width: 200px;
+  height: 330px;
   padding: 10px;
   margin: 0;
   display: inline-block;
@@ -174,8 +174,8 @@ table {
   opacity: 0;
 }
 .tile--poster {
-  width: 300px;
-  height: auto;
+  width: 200px;
+  height: 264px;
   padding: 0;
   margin: 0;
   transform-origin: center;
@@ -200,7 +200,7 @@ table {
   transition: all 0.2s ease-out;
 }
 .catalog {
-  max-width: 1800px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 30px 0 70px;
@@ -208,8 +208,8 @@ table {
   font-size: 0;
 }
 .player {
-  width: 1920px;
-  height: 1080px;
+  width: 1280px;
+  height: 720px;
 }
 video {
   width: 100%;
@@ -253,7 +253,7 @@ video {
 }
 .tQuestion {
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 0 16px #000;
