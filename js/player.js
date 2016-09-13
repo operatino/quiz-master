@@ -81,6 +81,7 @@
 
   Player.prototype.startPlayback = function () {
     this._video.setAttribute('src', this._videoUrl);
+    this._video.querySelector('source').setAttribute('src', this._videoUrl);
     this._video.play();
 
     return this;
