@@ -12,46 +12,16 @@ var Score = {
     },{
       name: 'Q3',
       score: 1
-    },{
-      name: 'Q4',
-      score: 1
-    },{
-      name: 'Q4',
-      score: 0
-    },{
-      name: 'Q4',
-      score: 1
-    },{
-      name: 'Q4',
-      score: 1
-    },{
-      name: 'Q4',
-      score: 0
     }]);
     Score.setScore(1, 'Daniel S', [{
       name: 'Q1',
-      score: 1
+      score: 0
     },{
       name: 'Q2',
       score: 1
     },{
       name: 'Q3',
       score: 1
-    },{
-      name: 'Q4',
-      score: 1
-    },{
-      name: 'Q4',
-      score: 0
-    },{
-      name: 'Q4',
-      score: 1
-    },{
-      name: 'Q4',
-      score: 1
-    },{
-      name: 'Q4',
-      score: 0
     }]);
     Score.setScore(1, 'Elvin F', [{
       name: 'Q1',
@@ -62,20 +32,35 @@ var Score = {
     },{
       name: 'Q3',
       score: 1
+    }]);
+    Score.setScore(1, 'Ramon G', [{
+      name: 'Q1',
+      score: 0
     },{
-      name: 'Q4',
+      name: 'Q2',
+      score: 0
+    },{
+      name: 'Q3',
+      score: 0
+    }]);
+    Score.setScore(1, 'Laura B', [{
+      name: 'Q1',
       score: 1
     },{
-      name: 'Q4',
+      name: 'Q2',
       score: 1
     },{
-      name: 'Q4',
+      name: 'Q3',
       score: 1
+    }]);
+    Score.setScore(1, 'Marlies K', [{
+      name: 'Q1',
+      score: 0
     },{
-      name: 'Q4',
-      score: 1
+      name: 'Q2',
+      score: 0
     },{
-      name: 'Q4',
+      name: 'Q3',
       score: 1
     }]);
   },

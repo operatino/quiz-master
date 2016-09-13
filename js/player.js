@@ -75,6 +75,8 @@
 
     this.startPlayback();
 
+    Score.install();
+
     return this;
   };
 
@@ -159,7 +161,7 @@
   Player.prototype.storeResults = function () {
     this._stored = true;
     var _this = this;
-    Score.setScore('1', 'TestUsername', Object.keys(this._questions).map(function (id) {
+    Score.setScore(1, 'TestUsername', Object.keys(this._questions).map(function (id) {
       var question = _this._questions[id];
       return {
         name: question.question,
