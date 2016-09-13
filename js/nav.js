@@ -2,6 +2,7 @@ window.Nav = {
   buttons : [],
   getTargetIndex: function (dir) {
     var currentIndex = Nav._currentActiveIndex;
+    var bodyEl = window.document.body;
     var targetIndex;
 
     if (dir == 'next') {
@@ -25,6 +26,10 @@ window.Nav = {
         return currentIndex;
       }
     } else if (dir == 'up') {
+      if (currentIndex <= 6) {
+        bodyEl.scrollTop = 0;
+      }
+
       targetIndex = currentIndex - this.itemsInRow;
       if (this.buttons[targetIndex]) {
         return targetIndex;
