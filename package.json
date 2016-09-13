@@ -25,7 +25,6 @@
     "jquery": "^3.1.0"
   },
   "devDependencies": {
-    "gh-pages-travis": "^1.0.0",
     "http-server": "^0.9.0",
     "less": "^2.7.1",
     "less-cli": "^1.0.0",

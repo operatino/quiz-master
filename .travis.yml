@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - '6'
 script: npm install && npm run build
-after_success: npm run gh-pages-travis
+after_success: ./deploy-gh.sh
 env:
   global:
     - SSH_KEY="id_rsa"
