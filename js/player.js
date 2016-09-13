@@ -336,7 +336,7 @@
       if (Object.keys(_this._answers).length === Object.keys(_this._questions).length && !_this._stored) {
         _this.storeResults();
       }
-    }, 5000)
+    }, 5000);
 
     return this;
   };
