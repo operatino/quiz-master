@@ -54,6 +54,9 @@
   padding: 20px 0;
   text-decoration: none;
 }
+.is-me {
+  color: #4A90E2;
+}
 .wrong-answer:after,
 .correct-answer:after {
   content: ' ';
