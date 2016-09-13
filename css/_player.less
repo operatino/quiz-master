@@ -124,6 +124,7 @@ video {
 }
 
 .tResult {
+  color: #fff;
   font-size: 4em;
   text-align: center;
 
@@ -165,8 +166,28 @@ video {
   }
 }
 
+#progress-timeout {
+  background: rgba(0, 0, 0, .3);
+  height: 10px;
+  overflow: hidden;
+
+  .progress-track {
+    top: 0;
+    left: 0;
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    transform: translateX(-100%);
+    left: -100%;
+
+    background: #4A90E2;
+  }
+}
 
 .question-upcoming-notification {
+  color: #fff;
   position: absolute;
   z-index: 10;
   bottom: 40px;

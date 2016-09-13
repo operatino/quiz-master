@@ -22,8 +22,10 @@
     this._isPlaying = true,
     this._aBlock;
     this._progressTimeout;
+    this._progressTrack;
     this._warning;
     this._warningTime;
+    this._progressTimeoutValue = 0;
   };
 
   Player.prototype.setDefaultValues = function () {
@@ -47,6 +49,7 @@
     this._qBlock = document.getElementById("question");
     this._aBlock = document.getElementById("answer");
     this._progressTimeout = document.getElementById("progress-timeout");
+    this._progressTrack = document.querySelector(".progress-track");
     this._warning = document.querySelector(".question-upcoming-notification");
     this._warningTime = this._warning.querySelector(".time");
 
@@ -181,7 +184,7 @@
 
     this.warningTextTimeout = setTimeout(function() {
       clearInterval(_this.warningTextInterval);
-    }, (timeout * 1000) - 500)
+    }, (timeout * 1000) - 100)
   };
   Player.prototype.hideWarning = function () {
     this._warning.classList.add('hidden');
@@ -221,14 +224,15 @@
 
   Player.prototype.startAnsweringTimeout = function() {
     var _this = this;
-    _this._progressTimeout.value = 0;
-    var currentValue = this._progressTimeout.value;
     var timeout = 7;
-    this._progressTimeout.max = timeout;
+
+    this._progressTimeoutValue = 0;
+    var currentValue = this._progressTimeoutValue;
+    this._progressTrack.style.transform = 'translateX(-100%)';
     this._progressTimeout.style.display = 'block';
 
     this.answerInterval = setInterval(function() {
-      _this._progressTimeout.value = (currentValue++);
+      _this._progressTrack.style.transform = 'translateX(' + (((currentValue++ + 1) / timeout) * 100) + '%)';
     }, 1000);
 
     this.answerTimeout = setTimeout(function() {
