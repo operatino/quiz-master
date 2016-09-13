@@ -14,7 +14,7 @@ video {
   z-index: 1;
 }
 
-#answer, #question {
+#answer, #question , #progress-timeout {
   display: none;
   z-index: 3;
   position: absolute;
@@ -78,14 +78,19 @@ video {
     color: #fff;
     display: block;
     float: left;
-    width: 48%;
-    margin-right: 2%;
+    width: 49%;
+    margin-right: 1%;
     margin-bottom: 2%;
     background-color: #2B2B2B;
     font-size: 1.5em;
     box-sizing: border-box;
     padding: 50px;
     padding-left: 100px;
+
+    &:nth-child(even) {
+      margin-right: 0;
+      margin-left: 1%;
+    }
 
     span {
       position: absolute;

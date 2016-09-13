@@ -21,7 +21,7 @@
     this._stored = false,
     this._isPlaying = true,
     this._aBlock;
-    this._progress;
+    this._progressTimeout;
   };
 
   Player.prototype.setDefaultValues = function () {
@@ -44,7 +44,7 @@
     this._qBarTemplate = _.template(document.getElementById('qbar-template').innerHTML);
     this._qBlock = document.getElementById("question");
     this._aBlock = document.getElementById("answer");
-    this._progress = document.getElementById("progress");
+    this._progressTimeout = document.getElementById("progress-timeout");
 
 
     return this;
@@ -194,13 +194,24 @@
   };
 
   Player.prototype.startAnsweringTimeout = function() {
+    var _this = this;
+    _this._progressTimeout.value = 0;
+    var currentValue = this._progressTimeout.value;
+    var timeout = 7;
+    this._progressTimeout.max = timeout;
+    this._progressTimeout.style.display = 'block';
 
-    // setInterval(function() {
-    //   this._progress.value = 1;
-    // }, 1000);
-    // setTimeout(function() {
-    //   this.endTimeout();
-    // }, 30000);
+    this.answerInterval = setInterval(function() {
+      _this._progressTimeout.value = (currentValue++);
+    }, 1000);
+
+    this.answerTimeout = setTimeout(function() {
+      clearInterval(_this.answerInterval);
+
+      _this.hideQuestions();
+      _this._answers[String(_this._activeQuestion)] = 'timeout';
+
+    }, (timeout + 1) * 1000);
   },
 
   Player.prototype.setKeyEvents = function () {
@@ -267,19 +278,27 @@
   Player.prototype.handleResponse = function (element, answer) {
     var _this = this;
     this._answers[String(this._activeQuestion)] = answer;
-
+    var elements = document.querySelectorAll('[class^=answer');
+    for (var i = 0, limit = elements.length; i < limit; i++) {
+      elements[i].classList.remove('selected');
+    }
     element.classList.add('selected');
 
-    setTimeout(function() {
+
+    clearTimeout(this._hideQuestionTimeout);
+    this._hideQuestionTimeout = setTimeout(function() {
       _this.hideQuestions();
     }, 2000);
   };
 
   Player.prototype.hideQuestions = function () {
     this._qBlock.style.display = 'none';
+    this._progressTimeout.style.display = 'none';
     this._qBlock.innerHTML = '';
     this._listenButtons = false;
     this._video.play();
+    clearTimeout(this.answerTimeout);
+    clearInterval(this.answerInterval);
 
     return this;
   };
