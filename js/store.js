@@ -2,7 +2,7 @@ var SCORE_KEY = 'quiz';
 var Score = {
 
   install: function() {
-    Score.setScore('Phil', [{
+    Score.setScore(1, 'Phil', [{
       name: 'Q1',
       score: 1
     },{
@@ -17,10 +17,23 @@ var Score = {
     }])
   },
 
-  setScore: function(id, name, answers) {
-
+  clear: function() {
     localStorage.removeItem(SCORE_KEY);
+    Score.install();
+  },
 
+  getAnswersByUser: function(id, name) {
+    var scoreList = Score.getScores();
+    var answers = [];
+    scoreList.forEach(function(score) {
+      if (score.id === id && score.name === name) {
+        answers = score.answers;
+      }
+    });
+    return answers;
+  },
+
+  setScore: function(id, name, answers) {
     var scoreList = localStorage.getItem(SCORE_KEY);
     if (scoreList) {
       scoreList = JSON.parse(scoreList);
@@ -41,7 +54,7 @@ var Score = {
     var score = 0;
 
     for (var e = 0; e < answers.length; e++) {
-      score += answers[i].score;
+        score += answers[e].score;
     }
 
     if (!found) {
