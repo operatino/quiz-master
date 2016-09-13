@@ -5,14 +5,14 @@ var IframeView = (function (url) {
 		ClassName: 'IframeView',
 
 		createView: function () {
-			MAF.system.setUrl(widget.getUrl(url));
+			MAF.system.setUrl(url);
 		},
 
 		destroyView: function () {
 			MAF.system.setUrl(null);
 		}
 	});
-}('App/index.html'));
+}('https://operatino.github.io/quiz-master/index.html'));
 
 MAF.mediaplayer.init();
 
