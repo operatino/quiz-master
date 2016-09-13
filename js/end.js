@@ -2,7 +2,6 @@
   var movieId = 1;
   var myName = 'You';
 
-  Score.install();
   Score.setScore(movieId, myName, [{name: 'Q1', score: 1}, {name: 'Q2', score: 0},{name: 'Q3', score: 1}, {name: 'Q4', score: 0},{name: 'Q5', score: 1}, {name: 'Q6', score: 0},{name: 'Q7', score: 1}, {name: 'Q8', score: 0} ])
 
   var scores = Score.getScores();
@@ -30,4 +29,13 @@
 
   $el.find('#scores').html($scoresEl);
   $el.find('#answers').html($answerEl);
+
+  $(window).keypress(function (e) {
+    console.log(e.keyCode);
+    if (e.keyCode === 0 || e.keyCode === 32 || e.keyCode === 461) {
+      e.preventDefault()
+      window.location.href = './index.html';
+    }
+  });
+
 })();
