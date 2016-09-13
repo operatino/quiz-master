@@ -79,8 +79,6 @@
 
     Object.assign(this._config, config);
 
-    Score.install();
-
     return this.startPlayback().setKeyEvents();
   };
 
@@ -194,6 +192,7 @@
     var _this = this;
 
     setTimeout(function () {
+      Score.install();
       Score.setScore(1, Score.getFakeUserName(), Object.keys(_this._questions).map(function (id) {
         var question = _this._questions[id];
         return {
@@ -267,15 +266,15 @@
 
     var key = event.which || event.keyCode;
 
-    if (key === 413) {
+    if (key === 413 || key === 48) {
       return this.redirectTo('end.html');
     }
 
-    if (key === 415) {
+    if (key === 415 || key === 13) {
       return this.playPause();
     }
 
-    if (key === 461) {
+    if (key === 461 || key === 27) {
       return this.redirectTo('index.html');
     }
 
@@ -363,7 +362,7 @@
       if (Object.keys(_this._answers).length === Object.keys(_this._questions).length && !_this._stored) {
         _this.storeResults();
       }
-    }, 5000)
+    }, 5000);
 
     return this;
   };
