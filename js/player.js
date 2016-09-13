@@ -92,7 +92,6 @@
   };
 
   Player.prototype.scoreBoard = function () {
-    console.log('Bla')
     window.location.href = './end.html';
   }
 

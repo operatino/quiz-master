@@ -29,4 +29,13 @@
 
   $el.find('#scores').html($scoresEl);
   $el.find('#answers').html($answerEl);
+
+  $(window).keypress(function (e) {
+    console.log(e.keyCode);
+    if (e.keyCode === 0 || e.keyCode === 32 || e.keyCode === 461) {
+      e.preventDefault()
+      window.location.href = './index.html';
+    }
+  });
+
 })();
