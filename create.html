@@ -14,15 +14,78 @@
 
 <section class="page">
 
-    <video id='player' src=''>
-    </video>
+<!--    <video id='player' src=''>
+    </video>-->
+
+    <div>
+        <div id="time">0:00</div>
+        <div id="add-question">Add question</div>
+    </div>
+
+    <div id="add-question-form" class="hidden">
+       <form>
+           <div>
+               <label for="question1">1) </label>
+               <input name="question1" type="text">
+           </div>
+           <div>
+               <label for="question2">2) </label>
+               <input name="question2" type="text">
+           </div>
+           <div>
+               <label for="question3">3) </label>
+               <input name="question3" type="text">
+           </div>
+           <div>
+               <label for="question4">4) </label>
+               <input name="question4" type="text">
+           </div>
+           <div>
+                <label for="answer">Correct answer: </label>
+               <select name="answer">
+                   <option value="1">Option 1</option>
+                   <option value="2">Option 2</option>
+                   <option value="3">Option 3</option>
+                   <option value="4">Option 4</option>
+               </select>
+            </div>
+       </form>
+        <button id="save-form">Save</button>
+        <button>Cancel</button>
+    </div>
+
+    <h1>Questions</h1>
+    <ul id="questions" class="questions">
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elif? <span>edit</span><span>remove</span></li>
+    </ul>
 
 </section>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src='./node_modules/lodash/lodash.min.js'></script>
 <script src="js/store.js"></script>
 <script src="js/quiz.js"></script>
 <script src="js/create.js"></script>
+<script type="text/javascript">
+
+    var movieId = 1;
+    var create = new Create();
+    create.init($('.page'));
+
+    var questions = [{
+        movieId: movieId,
+        question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elif?',
+        time: 10000
+    }];
+
+    create.addQuestion({question: 'Lorem ipsum dolor sit amet, consectetur adip?'})
+    create.addQuestion({question: 'Lorem ipsum dolor sit amet, consectetur?'})
+    create.addQuestion({question: 'Lorem ipsum dolor sit amet, consectetur adipiscing bla?'})
+
+
+
+
+</script>
 </body>
 </html>
 

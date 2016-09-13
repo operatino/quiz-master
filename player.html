@@ -14,7 +14,6 @@
       id='player'
       src=''>
       <source src= '' type="video/mp4" />
-      
     </video>
 
     <div class="qBar" id="q-bar"></div>
@@ -25,6 +24,15 @@
     <div id="question"></div>
     <div id="answer"></div>
     <progress id="progress-timeout" min="0" max="100" value="0"></progress>
+
+    <div class="question-upcoming-notification hidden">
+      <p>Grab your remote!</p>
+      <div class="notification-circle">
+        <span class="time">10</span>
+        <span>seconds</span>
+      </div>
+      <p>New question is coming up!</p>
+    </div>
 
   </div>
 
@@ -59,11 +67,11 @@
   </script>
 
   <script src="lib/maf.js"></script>
-  <script src='./node_modules/lodash/lodash.min.js'></script>
-  <script src='./js/store.js'></script>
-  <script src='./js/player.js'></script>
+  <script src='node_modules/lodash/lodash.min.js'></script>
+  <script src='js/store.js'></script>
+  <script src='js/player.js'></script>
   <script>
-  var url = 'http://r1---sn-2ugxh5a5-jb3s.googlevideo.com/videoplayback?lmt=1473787787337590&sver=3&ip=101.255.64.210&ipbits=0&itag=18&sparams=dur%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Cratebypass%2Csource%2Cupn%2Cexpire&id=o-ABJIcqMzEUEr6h41zXdTpgIeYgZLqlcQJh9wXwTm_hls&mime=video%2Fmp4&key=yt6&expire=1473809426&mm=31&mn=sn-2ugxh5a5-jb3s&upn=fTsnSW2CZS4&mt=1473787121&initcwndbps=692500&pl=24&dur=46.138&ms=au&signature=4D3729BAB29DF7A604FE2C77C438ABD3BA53D223.7234F7A3A69FBAED07BBA8F15E1C44FD0E9B5B4B&ratebypass=yes&source=youtube&mv=m&title=demo+movie+cropped';
+  var url = '//sourcejs.com/tmp/demo-movie-cropped.mp4';
   var questions = {
     7: {
       offset: 3,
