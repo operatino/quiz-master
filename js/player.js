@@ -21,6 +21,7 @@
     this._stored = false,
     this._isPlaying = true,
     this._aBlock;
+    this._progressTimeout;
   };
 
   Player.prototype.setDefaultValues = function () {
@@ -43,6 +44,7 @@
     this._qBarTemplate = _.template(document.getElementById('qbar-template').innerHTML);
     this._qBlock = document.getElementById("question");
     this._aBlock = document.getElementById("answer");
+    this._progressTimeout = document.getElementById("progress-timeout");
 
 
     return this;
@@ -185,8 +187,31 @@
     this._qBlock.innerHTML = questionHTML;
     this._qBlock.style.display = 'block';
     this._video.pause();
+    this.startAnsweringTimeout();
+
     return this.printQbar(true);
   };
+
+  Player.prototype.startAnsweringTimeout = function() {
+    var _this = this;
+    _this._progressTimeout.value = 0;
+    var currentValue = this._progressTimeout.value;
+    var timeout = 7;
+    this._progressTimeout.max = timeout;
+    this._progressTimeout.style.display = 'block';
+
+    this.answerInterval = setInterval(function() {
+      _this._progressTimeout.value = (currentValue++);
+    }, 1000);
+
+    this.answerTimeout = setTimeout(function() {
+      clearInterval(_this.answerInterval);
+
+      _this.hideQuestions();
+      _this._answers[String(_this._activeQuestion)] = 'timeout';
+
+    }, (timeout + 1) * 1000);
+  },
 
   Player.prototype.setKeyEvents = function () {
     document.body.addEventListener('keyup', this.handleKeyUp.bind(this));
@@ -214,15 +239,15 @@
 
     var key = event.which || event.keyCode;
 
-    if (key === 413) {
+    if (key === 413 || key === 48) {
       return this.redirectTo('end.html');
     }
 
-    if (key === 415) {
+    if (key === 415 || key === 13) {
       return this.playPause();
     }
 
-    if (key === 461) {
+    if (key === 461 || key === 27) {
       return this.redirectTo('index.html');
     }
 
@@ -252,19 +277,27 @@
   Player.prototype.handleResponse = function (element, answer) {
     var _this = this;
     this._answers[String(this._activeQuestion)] = answer;
-
+    var elements = document.querySelectorAll('[class^=answer]');
+    for (var i = 0, limit = elements.length; i < limit; i++) {
+      elements[i].classList.remove('selected');
+    }
     element.classList.add('selected');
 
-    setTimeout(function() {
+
+    clearTimeout(this._hideQuestionTimeout);
+    this._hideQuestionTimeout = setTimeout(function() {
       _this.hideQuestions();
     }, 2000);
   };
 
   Player.prototype.hideQuestions = function () {
     this._qBlock.style.display = 'none';
+    this._progressTimeout.style.display = 'none';
     this._qBlock.innerHTML = '';
     this._listenButtons = false;
     this._video.play();
+    clearTimeout(this.answerTimeout);
+    clearInterval(this.answerInterval);
 
     return this;
   };
@@ -302,7 +335,7 @@
       if (Object.keys(_this._answers).length === Object.keys(_this._questions).length && !_this._stored) {
         _this.storeResults();
       }
-    }, 5000)
+    }, 5000);
 
     return this;
   };

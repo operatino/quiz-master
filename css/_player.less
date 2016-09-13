@@ -1,15 +1,6 @@
-body {
-  background-color: #000;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
-}
-
 .player {
-  width: 1920px;
-  height: 1080px;
+  width: 1280px;
+  height: 720px;
 }
 
 video {
@@ -23,7 +14,7 @@ video {
   z-index: 1;
 }
 
-#answer, #question {
+#answer, #question , #progress-timeout {
   display: none;
   z-index: 3;
   position: absolute;
@@ -61,7 +52,7 @@ video {
 
 .tQuestion {
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 0 16px #000;
@@ -72,7 +63,7 @@ video {
   font-size: 1.6em;
   font-weight: 700;
   color: #fff;
-  text-shadow: 0 0 4px #000;
+  text-shadow: 0 0 16px #000;
 }
 
 .tQuestions {
@@ -82,21 +73,24 @@ video {
 
   button {
     position: relative;
-    appearance: none;
-    border: 0;
+    border: none;
     text-align: left;
     color: #fff;
-    font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
     display: block;
     float: left;
-    width: 48%;
-    margin-right: 2%;
+    width: 49%;
+    margin-right: 1%;
     margin-bottom: 2%;
     background-color: #2B2B2B;
     font-size: 1.5em;
     box-sizing: border-box;
     padding: 50px;
     padding-left: 100px;
+
+    &:nth-child(even) {
+      margin-right: 0;
+      margin-left: 1%;
+    }
 
     span {
       position: absolute;
