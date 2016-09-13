@@ -2,7 +2,7 @@ var SCORE_KEY = 'quiz';
 var Score = {
 
   getFakeUserName: function() {
-    return 'TestUsername'
+    return 'You'
   },
 
   install: function() {
