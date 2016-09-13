@@ -1,4 +1,14 @@
 .player {
+  width: 1280px;
+  height: 720px;
+}
+.player-loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 720px;
+  text-align: center;
+  font-size: 3em;
   color: #fff;
   width: 1280px;
   height: 720px;

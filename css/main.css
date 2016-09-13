@@ -207,7 +207,26 @@ table {
   display: block;
   font-size: 0;
 }
+.facebook {
+  float: right;
+  font-size: 24px;
+  appearance: none;
+  border: 0;
+  color: #fff;
+  background-color: blue;
+  padding: 10px 20px;
+}
 .player {
+  width: 1280px;
+  height: 720px;
+}
+.player-loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 720px;
+  text-align: center;
+  font-size: 3em;
   color: #fff;
   width: 1280px;
   height: 720px;
@@ -468,6 +487,7 @@ body {
   margin: 0;
   padding: 0;
   display: block;
+  background-color: #000;
 }
 .page {
   background: #161616;
@@ -481,6 +501,51 @@ body {
   color: #fff;
   padding-left: 10px;
   margin: 15px 0 20px;
+}
+.fb {
+  width: 1280px;
+  height: 720px;
+  background-color: #000;
+}
+.fbs {
+  padding-top: 100px;
+  position: relative;
+}
+.content {
+  padding: 20px;
+  color: #fff;
+}
+.content ul {
+  list-style: square;
+  font-weight: 400;
+  margin: 40px;
+  padding-left: 50px;
+}
+.content ul li {
+  line-height: 30px;
+}
+.popup {
+  padding: 20px;
+  background-color: #fff;
+  color: #666;
+  position: absolute;
+  width: 300px;
+  top: 80px;
+  right: 20px;
+  transform: translateX(500px);
+  box-shadow: 0 0 10px black;
+  border: 1px solid #666;
+  transition: transform 0.3s ease-out;
+}
+.popup.show {
+  transform: translateX(0px);
+}
+#return {
+  color: white;
+  padding: 10px;
+}
+#return:focus {
+  outline: 1px solid white;
 }
 .hidden {
   display: none;
