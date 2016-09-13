@@ -27,8 +27,7 @@
     <% if (finished) { %>
       <div class='tUr'>You are</div>
       <div class='tResult'>
-        <span class='<%=(!isCorrect ? 'selected' : '')%>'>Right</span>
-        <span class='<%=(isCorrect ? 'selected' : '')%>'>Wrong</span>
+        <span><%=(isCorrect ? 'Right' : 'Wrong')%></span>
       </div>
 
       <div class='tScore'>Score: <%=score%></div>
@@ -36,23 +35,24 @@
     <div class='tQuestion'><%=question%></div>
 
     <% if (!finished) { %>
-      <div class='tHelper'>Press the right color on your remote</div>
+      <div class='tHelper'>Press the correct number on your remote</div>
     <% } %>
 
 
     <div class='tQuestions'>
       <% for (var i=0; i<answers.length; i++) { %>
-        <button class='answer-<%=i%> <%=(finished && i != correctAnswer ? 'hidden' : '')%>' id='answer-<%=i%>' rel='<%=i%>'><%=answers[i]%></button>
+        <button class='answer-<%=i%> <%=(finished && i != correctAnswer ? 'hidden' : '')%>' id='answer-<%=i%>' rel='<%=i%>'>
+          <span><%=(i + 1)%></span><%=answers[i]%></button>
       <% } %>
     </div>
   </script>
 
   <script type='text/html' id='qbar-template' style='display:none'>
     <% for (var i=0; i<answers.length; i++) { %>
-      <div class='<%=answers[i].isCorrect%>' style='left: <%=answers[i].left%>%'></div>
+      <div class='<%=answers[i].isCorrect%> <%=(answers[i].isActive ? 'active' : '')%>' style='left: <%=answers[i].left%>%'></div>
     <% } %>
   </script>
-
+  
   <script src="lib/maf.js"></script>
   <script src='./node_modules/lodash/lodash.min.js'></script>
   <script src='./js/store.js'></script>
@@ -60,14 +60,14 @@
   <script>
   var url = 'http://d.pr/v/19np2+';
   var questions = {
-    6: {
-      offset: 4,
-      question: 'What did T-800 ask?',
+    7: {
+      offset: 3,
+      question: 'I need your clothes, your boots...',
       answers: [
-        'The route',
-        'Money',
-        'Sunglasses',
-        'Clothes, boots, motorcycle'
+        '...and your money',
+        '...and your woman',
+        '...and your sunglasses',
+        '...and your motorcycle'
       ],
       correctAnswer: 3
     },

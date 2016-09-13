@@ -9,3 +9,5 @@
 id_rsa
 node_modules
 /css/*.css
+tmp
+app.zip

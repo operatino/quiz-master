@@ -8,8 +8,8 @@ body {
 }
 
 .player {
-  width: 1920px;
-  height: 1080px;
+  width: 1280px;
+  height: 720px;
 }
 
 video {
@@ -29,7 +29,7 @@ video {
   position: absolute;
   width: 80%;
   left: 10%;
-  bottom: 15%;
+  bottom: 10%;
 }
 
 .seekBar {
@@ -81,6 +81,7 @@ video {
   margin-top: 2%;
   
   button {
+    position: relative;
     appearance: none;
     border: 0;
     text-align: left;
@@ -92,21 +93,22 @@ video {
     margin-right: 2%;
     margin-bottom: 2%;
     background-color: #2B2B2B;
-    font-size: 2em;
+    font-size: 1.5em;
     box-sizing: border-box;
     padding: 50px;
-    border-left: 25px solid #D0021B;
+    padding-left: 100px;
     
-    &.answer-1 {
-      border-left-color: #7ED321;
-    }
-    
-    &.answer-2 {
-      border-left-color: #F8E71C;
-    }
-    
-    &.answer-3 {
-      border-left-color: #4A90E2;
+    span {
+      position: absolute;
+      width: 75px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      line-height: 130px;
+      text-align: center;
+      color: #4a90e2;
+      font-size: 2.4em;
+      background-color: #000;
     }
     
     &.selected {
@@ -123,37 +125,21 @@ video {
 .tUr, .tResult, .tScore {
   text-align: center;
   text-shadow: 0 0 16px #000;
-  font-size: 4em;
+  font-size: 2em;
 }
 
 .tResult {
-  font-size: 8em;
+  font-size: 4em;
   text-align: center;
   
   span {
     display: inline-block;
     width: 400px;
-    
-    &.selected {
-      position: relative;
-      
-      &:before {
-        position: absolute;
-        left: 0;
-        top: 15px;
-        height: 20px;
-        width: 370px;
-        content: '';
-        background-color: #f00;
-        transform: rotate(-20deg);
-        transform-origin: 100% 100%;
-      }
-    }
   }
 }
 
 .tScore {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .qBar {
@@ -176,6 +162,10 @@ video {
     
     &.false {
       background-color: red;
+    }
+    
+    &.active {
+      height: 50px;
     }
   }
 }
