@@ -60,7 +60,14 @@ REV=$(git rev-parse HEAD)
 git clone --branch ${TARGET_BRANCH} ${REPO} ${TARGET_DIR}
 rsync -rt --delete --exclude=".git" --exclude=".travis.yml" $SOURCE_DIR/ $TARGET_DIR/
 cd $TARGET_DIR
+
+# Project specific
 rm .gitignore
+mv gh-gitignore .gitignore
+rm -rf node_modules
+NODE_ENV=production npm i
+
+# Git add and push
 git add -A .
 git commit --allow-empty -m "Built from commit $REV"
 git push $REPO $TARGET_BRANCH
