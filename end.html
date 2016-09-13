@@ -16,6 +16,21 @@
             color: white;
         }*/
 
+
+
+         .end-page {
+             font-family: InterstatePro-Regular;
+             opacity: 0.81;
+             background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, #000000 23%);
+             width: 100%;
+             height: 100%;
+             border: 1px solid yellow;
+         }
+
+         h1 {
+           color: #4A90E2;
+         }
+
         .list {
             border: 1px solid blue;
             width: 50%;
@@ -48,14 +63,6 @@
              left: 0;
          }
 
-         .end-page {
-             opacity: 0.81;
-             background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, #000000 23%);
-             width: 100%;
-             height: 100%;
-             border: 1px solid yellow;
-         }
-
         .results {
             position: relative;
             z-index: 100;
@@ -65,6 +72,37 @@
             margin: 0 auto;
             margin-top:346px;
         }
+
+         .bottom-buttons {
+             width: 100%;
+         }
+
+        .back-btn {
+            color: #FFFFFF;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            background: #4A90E2;
+            width: 300px;
+        }
+
+         .correct-answer:after {
+
+             content: ' ';
+             background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM0MUFENDk7fQo8L3N0eWxlPjxnPjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iNDM0LjgsNDkgMTc0LjIsMzA5LjcgNzYuOCwyMTIuMyAwLDI4OS4yIDE3NC4xLDQ2My4zIDE5Ni42LDQ0MC45IDE5Ni42LDQ0MC45IDUxMS43LDEyNS44IDQzNC44LDQ5ICAgICAiLz48L2c+PC9zdmc+) no-repeat left center;
+             padding: 5px 0 5px 25px;
+             width: 20px;
+             height: 20px;
+         }
+
+         .wrong-answer:after {
+             content: ' ';
+             background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM0MUFENDk7fQo8L3N0eWxlPjxnPjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iNDM0LjgsNDkgMTc0LjIsMzA5LjcgNzYuOCwyMTIuMyAwLDI4OS4yIDE3NC4xLDQ2My4zIDE5Ni42LDQ0MC45IDE5Ni42LDQ0MC45IDUxMS43LDEyNS44IDQzNC44LDQ5ICAgICAiLz48L2c+PC9zdmc+) no-repeat left center;
+             padding: 5px 0 5px 25px;
+             width: 20px;
+             height: 20px;
+         }
+
     </style>
 </head>
 <body>
@@ -78,13 +116,17 @@
     <div class="end-page">
         <div class="results">
             <div class="background"></div>
-            <div id="scores" class="fleft list">
-
-            </div>
             <div id="answers" class="fleft list ">
 
             </div>
+            <div id="scores" class="fleft list">
+
+            </div>
             <div class="clr"></div>
+
+            <div class="bottom-buttons">
+                <a class="back-btn" href="./">Back to catalog</a>
+            </div>
         </div>
     </div>
 
@@ -104,9 +146,9 @@
 <script>
     var movieId = 1;
     var myName = 'You';
-    Score.clear()
+    //Score.clear();
+    Score.install();
     Score.setScore(movieId, myName, [{name: 'Q1', score: 1}, {name: 'Q2', score: 0},{name: 'Q3', score: 1}, {name: 'Q4', score: 0},{name: 'Q5', score: 1}, {name: 'Q6', score: 0},{name: 'Q7', score: 1}, {name: 'Q8', score: 0} ])
-    Score.setScore(movieId, 'Bill', [{name: 'Q1', score: 1}, {name: 'Q2', score: 1}])
     //Score.setScore('You', 8, [{name: 'Q1', score: 1}])
 
     var scores = Score.getScores();
@@ -115,12 +157,16 @@
     var $answerEl = '<h1>Your answers: %score%</h1>';
     var yourScore = 0;
 
+    scores.sort(function (a, b) {
+     return b.score - a.score ;
+    });
+
     scores.forEach(function(score) {
         $scoresEl += '<span>' + score.name + ': ' + score.score + '</span>'
     });
     userAnswers.forEach(function(answer) {
         yourScore += answer.score;
-        $answerEl += '<span>' + answer.name + ': ' + answer.score + '</span>'
+        $answerEl += '<span class="' + (answer.score ? 'correct-answer': 'wrong-answer') + '">' + answer.name + '</span>'
     });
 
     $answerEl = $answerEl.replace(/%score%/gi, yourScore);
