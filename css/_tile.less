@@ -1,5 +1,7 @@
 .tile {
-  width: 300px;
+  position: relative;
+  width: 200px;
+  height: 330px;
 
   padding: 10px;
   margin: 0;
@@ -9,39 +11,46 @@
 
   font-size: 0;
   overflow: hidden;
+  transform-origin: center;
 
   &.active {
     outline: none;
 
+    transform: scale(1.03) translateY(-2px);
     .tile--title {
       background: #999;
       color: #000;
     }
     .tile--poster {
-      transform: scale(1.01) translateY(-2px);
     }
   }
 }
 
 .tile--poster {
-  width: 280px;
-  height: 404px;
+  width: 200px;
+  height: 264px;
   padding: 0;
   margin: 0;
 
+  transform-origin: center;
   transition: transform .1s ease-out;
 }
 
 .tile--title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 20px;
   background: #333;
   font-size: 14px;
   font-weight: bold;
+  transform-origin: center;
 
   padding: 20px 10px;
   margin: 0;
 
   min-height: 55px;
-  line-height: 1;
+  line-height: 1.1;
   width: 100%;
 
   color: #fff;
