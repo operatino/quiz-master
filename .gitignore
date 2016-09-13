@@ -5,4 +5,7 @@
 *.idea
 *.iml
 
+# Project
 id_rsa
+node_modules
+/css/*.css
