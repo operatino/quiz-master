@@ -13,6 +13,8 @@
       src=''>
     </video>
     
+    <div class="qBar" id="q-bar"></div>
+    
     <div type="range" class='seekBar' id="seek-bar" />
       <div class='progress' id='progress'></div>
     </div>
@@ -38,16 +40,23 @@
       <div class='tHelper'>Press the right color on your remote</div>
     <% } %>
     
-    <ul class='tQuestions'>
+    <div class='tQuestions'>
       <% for (var i=0; i<answers.length; i++) { %>
-        <li class='answer-<%=i%> <%=(finished && i != correctAnswer ? 'hidden' : '')%>' id='answer-<%=i%>' rel='<%=i%>'><%=answers[i]%></li>
+        <button class='answer-<%=i%> <%=(finished && i != correctAnswer ? 'hidden' : '')%>' id='answer-<%=i%>' rel='<%=i%>'><%=answers[i]%></button>
       <% } %>
-    </ul>
+    </div>
+  </script>
+  
+  <script type='text/html' id='qbar-template' style='display:none'>
+    <% for (var i=0; i<answers.length; i++) { %>
+      <div class='<%=answers[i].isCorrect%>' style='left: <%=answers[i].left%>%'></div>
+    <% } %>
   </script>
 </body>
 
 <script type="text/javascript" src='https://raw.githubusercontent.com/lodash/lodash/4.15.0/dist/lodash.min.js'></script>
 <script type="text/javascript" src='./js/player.js'></script>
+<script type="text/javascript" src='./js/store.js'></script>
 <script>
 var url = 'https://sourcejs.com/tmp/demo-movie.mp4';
 var questions = {
@@ -63,8 +72,8 @@ var questions = {
     correctAnswer: 3
   },
   
-  20: {
-    offset: 5,
+  100: {
+    offset: 3,
     question: '2: What did T-800 ask?',
     answers: [
       '2: The route',
