@@ -2,7 +2,6 @@
   var movieId = 1;
   var myName = 'You';
 
-  Score.install();
   Score.setScore(movieId, myName, [{name: 'Q1', score: 1}, {name: 'Q2', score: 0},{name: 'Q3', score: 1}, {name: 'Q4', score: 0},{name: 'Q5', score: 1}, {name: 'Q6', score: 0},{name: 'Q7', score: 1}, {name: 'Q8', score: 0} ])
 
   var scores = Score.getScores();
