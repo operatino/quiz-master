@@ -26,7 +26,7 @@ window.Nav = {
         return currentIndex;
       }
     } else if (dir == 'up') {
-      if (currentIndex <= 6) {
+      if (currentIndex <= 7) {
         bodyEl.scrollTop = 0;
       }
 
@@ -124,9 +124,6 @@ window.Nav = {
   },
 
   openGameCenter: function () {
-    console.log('openGameCenter');
-
-    console.log('openGame');
     try {
       Nav._openIFrame('./app/index.html');
     } catch (e) {
@@ -135,7 +132,6 @@ window.Nav = {
   },
 
   openGame: function () {
-    console.log('openGame');
     try {
       Nav._openIFrame('./2048/index.html');
     } catch (e) {
