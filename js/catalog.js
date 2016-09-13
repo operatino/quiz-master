@@ -7,7 +7,7 @@
   };
 
   var getData = function () {
-    $.ajax('http://api.lgi.io/kraken/v2/schedule/data/NL/vods?limit=32&video.category=speelfilm&video.subcategory=drama&fields=endOfAvailability,entitlementCodes,id,imi,lang,selfLink,startOfAvailability,video.selfLink,video.title,video.imageLink,video.category,video.imdbRating,video.subcategory', {
+    $.ajax('https://api.lgi.io/kraken/v2/schedule/data/NL/vods?limit=32&video.category=speelfilm&video.subcategory=drama&fields=endOfAvailability,entitlementCodes,id,imi,lang,selfLink,startOfAvailability,video.selfLink,video.title,video.imageLink,video.category,video.imdbRating,video.subcategory', {
       headers: {
         'x-auth-id': 'appathon2016',
         'x-auth-key': '9dece560cb977e8b922c05122be592dbedae848ecac120b41e7f4c30860cac6c'
@@ -45,7 +45,7 @@
 
     image.src = video.video.imageLink.href;
     title.innerHTML = video.video.title;
-    template.href = 'video.html?videoId=' + video.id;
+    template.href = 'player.html?videoId=' + video.id;
 
     catalogEl.appendChild(template);
 

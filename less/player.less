@@ -1,0 +1,154 @@
+body {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
+}
+
+.player {
+  width: 1920px;
+  height: 1080px;
+}
+
+video {
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: auto;
+  z-index: 1;
+}
+
+#answer, #question {
+  display: none;
+  z-index: 3;
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: 15%;
+}
+
+.seekBar {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  bottom: 0;
+  box-sizing: border-box;
+  border-bottom: 5px solid #D8D8D8;
+}
+
+.progress {
+  position: absolute;
+  width: 0;
+  left: 0;
+  top: 0;
+  height: 10px;
+  background-color: #4A90E2;
+}
+
+.player {
+  position: relative;
+}
+
+#question {
+  
+}
+
+.tQuestion {
+  text-align: center;
+  font-size: 4em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 16px #000;
+}
+
+.tHelper {
+  text-align: center;
+  font-size: 1em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 4px #000;
+}
+
+.tQuestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  margin-top: 2%;
+  
+  li {
+    display: block;
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    background-color: #2B2B2B;
+    font-size: 2em;
+    box-sizing: border-box;
+    padding: 50px;
+    border-left: 25px solid #D0021B;
+    
+    &.answer-1 {
+      border-left-color: #7ED321;
+    }
+    
+    &.answer-2 {
+      border-left-color: #F8E71C;
+    }
+    
+    &.answer-3 {
+      border-left-color: #4A90E2;
+    }
+    
+    &.selected {
+      background-color: #D3D3D3;
+      color: #000;
+    }
+    
+    &.hidden {
+      opacity: .3;
+    }
+  }
+}
+
+.tUr, .tResult, .tScore {
+  text-align: center;
+  text-shadow: 0 0 16px #000;
+  font-size: 4em;
+}
+
+.tResult {
+  font-size: 8em;
+  text-align: center;
+  
+  span {
+    display: inline-block;
+    width: 400px;
+    
+    &.selected {
+      position: relative;
+      
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 15px;
+        height: 20px;
+        width: 370px;
+        content: '';
+        background-color: #f00;
+        transform: rotate(-20deg);
+        transform-origin: 100% 100%;
+      }
+    }
+  }
+}
+
+.tScore {
+  margin-bottom: 25px;
+}
