@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Master!</title>
+
+    <link rel="stylesheet" media="all" href="/css/main.css">
+    <style>
+ /*       .end {
+            max-width: 1400px;
+            width: 100%;
+            height: 100%
+            border: 1px solid red;
+            margin: 0 auto;
+            display: block;
+            color: white;
+        }*/
+
+        .list {
+            border: 1px solid blue;
+            width: 50%;
+        }
+
+        .list span {
+            display: block;
+        }
+
+
+        .fleft {
+           float: left;
+        }
+        .clr::after {
+            content: " "; /* Older browser do not support empty content */
+            visibility: hidden;
+            display: block;
+            height: 0;
+            clear: both;
+        }
+
+         .background {
+             opacity: 0.81;
+             background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, #000000 23%);
+             width: 100%;
+             height: 100%;
+             position: absolute;
+             top: 0;
+             z-index: -1;
+             left: 0;
+         }
+
+         .end-page {
+             opacity: 0.81;
+             background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, #000000 23%);
+             width: 100%;
+             height: 100%;
+             border: 1px solid yellow;
+         }
+
+        .results {
+            position: relative;
+            z-index: 100;
+            color: #FFFFFF;
+            border: 1px solid green;
+            width: 800px;
+            margin: 0 auto;
+            margin-top:346px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1 class="logo">Quiz Master</h1>
+</header>
+
+<section class="page">
+
+    <div class="end-page">
+        <div class="results">
+            <div class="background"></div>
+            <div id="scores" class="fleft list">
+
+            </div>
+            <div id="answers" class="fleft list ">
+
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+
+        <!--        <div class="column">
+                    <div>Your verdict: <span>5/8</span></div>
+                    <div>Your friends:</div>
+                </div>
+                <div>
+                    <div>Q1: Right</div>
+                    <div>Your friends:</div>
+                </div>-->
+
+</section>
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/js/store.js"></script>
+<script>
+    var movieId = 1;
+    var myName = 'You';
+    Score.clear()
+    Score.setScore(movieId, myName, [{name: 'Q1', score: 1}, {name: 'Q2', score: 0},{name: 'Q3', score: 1}, {name: 'Q4', score: 0},{name: 'Q5', score: 1}, {name: 'Q6', score: 0},{name: 'Q7', score: 1}, {name: 'Q8', score: 0} ])
+    Score.setScore(movieId, 'Bill', [{name: 'Q1', score: 1}, {name: 'Q2', score: 1}])
+    //Score.setScore('You', 8, [{name: 'Q1', score: 1}])
+
+    var scores = Score.getScores();
+    var userAnswers = Score.getAnswersByUser(movieId, myName);
+    var $scoresEl = '<h1>Your friends:</h1>';
+    var $answerEl = '<h1>Your answers: %score%</h1>';
+    var yourScore = 0;
+
+    scores.forEach(function(score) {
+        $scoresEl += '<span>' + score.name + ': ' + score.score + '</span>'
+    });
+    userAnswers.forEach(function(answer) {
+        yourScore += answer.score;
+        $answerEl += '<span>' + answer.name + ': ' + answer.score + '</span>'
+    });
+
+    $answerEl = $answerEl.replace(/%score%/gi, yourScore);
+
+    $('#scores').html($scoresEl);
+    $('#answers').html($answerEl);
+</script>
+</body>
+</html>
+
+
+
+
