@@ -1,6 +1,7 @@
 
 (function(){
   var catalogEl = document.querySelector('.catalog');
+  var tiles = [];
 
   var init = function () {
     getData();
@@ -18,7 +19,19 @@
 
   var handleGetDataComplete = function (data) {
     drawTiles(data.responseJSON.data);
-    window.Nav.init('a.tile', 6);
+    showTiles();
+    document.querySelector('.page.loading').classList.remove('loading');
+  };
+
+  var showTiles = function() {
+    TweenMax.staggerFrom(tiles, .2, {
+      delay: 1,
+      y: 800,
+      scale: .1,
+      ease: Quad.easeOut,
+    }, .02, function() {
+      window.Nav.init('a.tile', 6);
+    })
   };
 
   var drawTiles = function (vods) {
@@ -34,6 +47,7 @@
         enteredTitles.push(title);
       }
     }
+    tiles = document.querySelectorAll('.tile');
   };
 
   var drawTile = function(video) {
