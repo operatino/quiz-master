@@ -22,8 +22,6 @@
     this._isPlaying = true,
     this._aBlock;
     this._progressTimeout;
-    this._warning;
-    this._warningTime;
   };
 
   Player.prototype.setDefaultValues = function () {
@@ -47,8 +45,7 @@
     this._qBlock = document.getElementById("question");
     this._aBlock = document.getElementById("answer");
     this._progressTimeout = document.getElementById("progress-timeout");
-    this._warning = document.querySelector(".question-upcoming-notification");
-    this._warningTime = this._warning.querySelector(".time");
+
 
     return this;
   };
@@ -78,6 +75,8 @@
     this._initiated = true;
 
     Object.assign(this._config, config);
+
+    Score.install();
 
     return this.startPlayback().setKeyEvents();
   };
@@ -137,15 +136,10 @@
 
   Player.prototype.checkQuestion = function (currentTime) {
     var _currentTime = String(currentTime);
-    var warningTimeout = 3;
 
     if (!this._qBarPrinted) {
       this.printQbar(false);
       this._qBarPrinted = true;
-    }
-
-    if (this._questions[String(currentTime + warningTimeout)]) {
-      return this.showWarning(warningTimeout);
     }
 
     if (this._questions[_currentTime]) {
@@ -153,7 +147,6 @@
 
       if (!question.wasShown) {
         question.wasShown = true;
-        this.hideWarning();
         return this.showQuestion(_currentTime, question);
       }
     }
@@ -169,30 +162,11 @@
     return this;
   };
 
-  Player.prototype.showWarning = function (timeout) {
-    this._warning.classList.remove('hidden');
-    this._warningTime.innerHTML = timeout;
-
-    var _this = this;
-    clearInterval(_this.warningTextInterval);
-    this.warningTextInterval = setInterval(function() {
-      _this._warningTime.innerHTML = Number(_this._warningTime.innerHTML) - 1;
-    }, 1000);
-
-    this.warningTextTimeout = setTimeout(function() {
-      clearInterval(_this.warningTextInterval);
-    }, (timeout * 1000) - 500)
-  };
-  Player.prototype.hideWarning = function () {
-    this._warning.classList.add('hidden');
-  };
-
   Player.prototype.storeResults = function () {
     this._stored = true;
     var _this = this;
 
     setTimeout(function () {
-      Score.install();
       Score.setScore(1, Score.getFakeUserName(), Object.keys(_this._questions).map(function (id) {
         var question = _this._questions[id];
         return {
@@ -266,15 +240,15 @@
 
     var key = event.which || event.keyCode;
 
-    if (key === 413 || key === 48) {
+    if (key === 413) {
       return this.redirectTo('end.html');
     }
 
-    if (key === 415 || key === 13) {
+    if (key === 415) {
       return this.playPause();
     }
 
-    if (key === 461 || key === 27) {
+    if (key === 461) {
       return this.redirectTo('index.html');
     }
 
@@ -304,7 +278,7 @@
   Player.prototype.handleResponse = function (element, answer) {
     var _this = this;
     this._answers[String(this._activeQuestion)] = answer;
-    var elements = document.querySelectorAll('[class^=answer]');
+    var elements = document.querySelectorAll('[class^=answer');
     for (var i = 0, limit = elements.length; i < limit; i++) {
       elements[i].classList.remove('selected');
     }
@@ -362,7 +336,7 @@
       if (Object.keys(_this._answers).length === Object.keys(_this._questions).length && !_this._stored) {
         _this.storeResults();
       }
-    }, 5000);
+    }, 5000)
 
     return this;
   };

@@ -1,7 +1,6 @@
 .player {
-  color: #fff;
-  width: 1280px;
-  height: 720px;
+  width: 1920px;
+  height: 1080px;
 }
 video {
   width: 100%;
@@ -45,7 +44,7 @@ video {
 }
 .tQuestion {
   text-align: center;
-  font-size: 3em;
+  font-size: 4em;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 0 16px #000;
@@ -142,33 +141,4 @@ video {
 }
 .qBar > div.active {
   height: 50px;
-}
-.question-upcoming-notification {
-  position: absolute;
-  z-index: 10;
-  bottom: 40px;
-  right: 20px;
-  font-size: 30px;
-  text-align: center;
-  opacity: 1;
-  transition: opacity 0.2s ease-out;
-}
-.question-upcoming-notification.hidden {
-  opacity: 0;
-}
-.question-upcoming-notification > p {
-  text-shadow: 0 0 16px #000;
-}
-.question-upcoming-notification .notification-circle {
-  width: 220px;
-  height: 220px;
-  border-radius: 110px;
-  background-color: #4A90E2;
-  padding-top: 55px;
-  font-size: 24px;
-  margin: 10px auto;
-}
-.question-upcoming-notification .notification-circle .time {
-  display: block;
-  font-size: 74px;
 }

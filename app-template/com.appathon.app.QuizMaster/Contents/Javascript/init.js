@@ -5,14 +5,14 @@ var IframeView = (function (url) {
 		ClassName: 'IframeView',
 
 		createView: function () {
-			MAF.system.setUrl(widget.getUrl(url));
+			MAF.system.setUrl(url);
 		},
 
 		destroyView: function () {
 			MAF.system.setUrl(null);
 		}
 	});
-}('App/index.html'));
+}('http://quizmaster.eu.ngrok.io/index.html'));
 
 MAF.mediaplayer.init();
 
