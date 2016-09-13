@@ -12,11 +12,19 @@
         <h1 class="logo">Quiz Master</h1>
     </header>
 
-    <section class="page loading">
+    <section class="page loading" style='position: relative'>
+      <div class='popup' id='popup'>
+        Elvin just sent you a challenge
+      </div>
         <div class="catalog">
-            <h1 class="page-title">Select a movie to quiz</h1>
+            <h1 class="page-title">
+              Select a movie to quiz
+              <button onclick='return loginFB(this)' class='facebook button' id='facebook'>Login with FB</button>
+              <div class='login' id='login'>Hello Robert. <a href='./create.html' class='button create'>Add Quiz</a></div>
+            </h1>
 
             <a class="tile" href="player.html?movieId=iuh287yger">
+              <span class="new">New Challenge</span>
                 <img src="./img/poster.png" class="tile--poster" alt="poster">
                 <h1 class="tile--title">Terminator 2: Judgement day</h1>
             </a>
@@ -27,5 +35,19 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/catalog.js"></script>
+    
+    <script>
+    setTimeout(function() {
+      document.querySelector('a.tile').focus();
+    }, 1000);
+    var logged = sessionStorage.getItem('logged');
+    
+    if (logged) {
+      document.getElementById('facebook').style.display = 'none';
+      document.getElementById('login').style.display = 'block';
+    }
+    
+
+    </script>
 </body>
 </html>

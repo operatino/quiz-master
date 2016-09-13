@@ -19,7 +19,7 @@
 
   var handleGetDataComplete = function (data) {
     drawTiles(data.responseJSON.data);
-    window.Nav.init('a.tile', 6);
+    window.Nav.init('a.tile, .button', 6);
     document.querySelector('.page.loading').classList.remove('loading');
   };
 
@@ -58,3 +58,33 @@
   init();
 
 })();
+
+var loginFB = function(el) {
+  var classes = el.className;
+  if (classes.match(/loading/g)) {
+    return;
+  }
+  
+  el.className = 'facebook loading';
+  el.innerText = 'Loading...';
+  
+  setTimeout(function () {
+    var el = document.getElementById('popup');
+    el.className = 'popup show';
+    document.getElementById('facebook').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
+    
+    var newEl = document.querySelector('a.tile:last-child');
+    
+    var cloned = $(newEl).clone();
+    cloned.addClass('challenge');
+    
+    $(cloned).insertAfter('.page-title');
+    
+    // sessionStorage.setItem('logged', 'true');
+    
+    setTimeout(function () {
+      el.className = 'popup';
+    }, 5000);
+  }, 3000);
+};

@@ -8,6 +8,8 @@
 <body>
   <div class='player'>
 
+    <div class='player-loading'>Loading...</div>
+
     <video
       id='player'
       src=''>
@@ -21,7 +23,18 @@
 
     <div id="question"></div>
     <div id="answer"></div>
-    <progress id="progress-timeout" min="0" max="100" value="0"></progress>
+    <div id="progress-timeout">
+      <div class="progress-track"></div>
+    </div>
+
+    <div class="question-upcoming-notification hidden">
+      <p>Grab your remote!</p>
+      <div class="notification-circle">
+        <span class="time">10</span>
+        <span>seconds</span>
+      </div>
+      <p>New question is coming up!</p>
+    </div>
 
   </div>
 
@@ -60,16 +73,16 @@
   <script src='js/store.js'></script>
   <script src='js/player.js'></script>
   <script>
-  var url = '//d.pr/v/19np2+';
+  var url = '//sourcejs.com/tmp/demo-movie-cropped.mp4';
   var questions = {
     7: {
       offset: 3,
       question: 'I need your clothes, your boots and your...',
       answers: [
-        'money',
-        'woman',
-        'sunglasses',
-        'motorcycle'
+        'Money',
+        'Woman',
+        'Sunglasses',
+        'Motorcycle'
       ],
       correctAnswer: 3
     },
@@ -78,10 +91,10 @@
       offset: 5,
       question: 'John wants T-800 to',
       answers: [
-        'bring an ice-cream',
-        'stand on one foot',
-        'sing a song',
-        'save Sarah'
+        'Bring an ice-cream',
+        'Stand on one foot',
+        'Sing a song',
+        'Save Sarah'
       ],
       correctAnswer: 1
     },

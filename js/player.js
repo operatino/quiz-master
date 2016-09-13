@@ -22,6 +22,10 @@
     this._isPlaying = true,
     this._aBlock;
     this._progressTimeout;
+    this._progressTrack;
+    this._warning;
+    this._warningTime;
+    this._progressTimeoutValue = 0;
   };
 
   Player.prototype.setDefaultValues = function () {
@@ -45,7 +49,9 @@
     this._qBlock = document.getElementById("question");
     this._aBlock = document.getElementById("answer");
     this._progressTimeout = document.getElementById("progress-timeout");
-
+    this._progressTrack = document.querySelector(".progress-track");
+    this._warning = document.querySelector(".question-upcoming-notification");
+    this._warningTime = this._warning.querySelector(".time");
 
     return this;
   };
@@ -134,10 +140,15 @@
 
   Player.prototype.checkQuestion = function (currentTime) {
     var _currentTime = String(currentTime);
+    var warningTimeout = 3;
 
     if (!this._qBarPrinted) {
       this.printQbar(false);
       this._qBarPrinted = true;
+    }
+
+    if (this._questions[String(currentTime + warningTimeout)]) {
+      return this.showWarning(warningTimeout);
     }
 
     if (this._questions[_currentTime]) {
@@ -145,6 +156,7 @@
 
       if (!question.wasShown) {
         question.wasShown = true;
+        this.hideWarning();
         return this.showQuestion(_currentTime, question);
       }
     }
@@ -158,6 +170,24 @@
       }
     }
     return this;
+  };
+
+  Player.prototype.showWarning = function (timeout) {
+    this._warning.classList.remove('hidden');
+    this._warningTime.innerHTML = timeout;
+
+    var _this = this;
+    clearInterval(_this.warningTextInterval);
+    this.warningTextInterval = setInterval(function() {
+      _this._warningTime.innerHTML = Number(_this._warningTime.innerHTML) - 1;
+    }, 1000);
+
+    this.warningTextTimeout = setTimeout(function() {
+      clearInterval(_this.warningTextInterval);
+    }, (timeout * 1000) - 100)
+  };
+  Player.prototype.hideWarning = function () {
+    this._warning.classList.add('hidden');
   };
 
   Player.prototype.storeResults = function () {
@@ -194,14 +224,15 @@
 
   Player.prototype.startAnsweringTimeout = function() {
     var _this = this;
-    _this._progressTimeout.value = 0;
-    var currentValue = this._progressTimeout.value;
     var timeout = 7;
-    this._progressTimeout.max = timeout;
+
+    this._progressTimeoutValue = 0;
+    var currentValue = this._progressTimeoutValue;
+    this._progressTrack.style.transform = 'translateX(-100%)';
     this._progressTimeout.style.display = 'block';
 
     this.answerInterval = setInterval(function() {
-      _this._progressTimeout.value = (currentValue++);
+      _this._progressTrack.style.transform = 'translateX(' + (((currentValue++ + 1) / timeout) * 100) + '%)';
     }, 1000);
 
     this.answerTimeout = setTimeout(function() {

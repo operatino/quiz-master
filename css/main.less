@@ -21,6 +21,7 @@ html, body {
   margin: 0;
   padding: 0;
   display: block;
+  background-color: #000;
 }
 
 
@@ -39,6 +40,81 @@ html, body {
   margin: 15px 0 20px;
 }
 
+.fb {
+  width: 1280px;
+  height: 720px;
+  background-color: #000;
+}
+
+.fbs {
+  padding-top: 100px;
+  position: relative;
+}
+
+.content {
+  padding: 20px;
+  color: #fff;
+  
+  ul {
+    list-style: square;
+    font-weight: 400;
+    margin: 40px;
+    padding-left: 50px;
+    
+    li {
+      line-height: 30px;
+    }
+  }
+}
+
+.popup {
+  // display: none;
+  padding: 20px;
+  background-color: #fff;
+  color: #666;
+  position: absolute;
+  width: 300px;
+  top: 80px;
+  right: 20px;
+  transform: translateX(500px);
+  box-shadow: 0 0 10px black;
+  border: 1px solid #666;
+  transition: transform .3s ease-out;
+  
+  &.show {
+    transform: translateX(0px); 
+  }
+}
+
+#return {
+  color: white;
+  padding: 10px;
+  
+  &:focus {
+    outline: 1px solid white;
+  }
+}
+
 .hidden {
   display: none;
+}
+
+.login {
+  float: right;
+  display: none;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.create {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 16px;
+  border: 1px solid #fff;
+  
+  &:focus {
+    border-color: #999;
+  }
 }

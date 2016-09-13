@@ -3,6 +3,19 @@
   height: 720px;
 }
 
+.player-loading {
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  line-height: 720px;
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+}
+
 video {
   width: 100%;
   top: 0;
@@ -13,14 +26,16 @@ video {
   margin: auto;
   z-index: 1;
 }
-
 #answer, #question , #progress-timeout {
   display: none;
   z-index: 3;
   position: absolute;
-  width: 80%;
-  left: 10%;
+  width: 94%;
+  left: 3%;
   bottom: 10%;
+}
+
+#question {
 }
 
 .seekBar {
@@ -52,16 +67,16 @@ video {
 
 .tQuestion {
   text-align: center;
-  font-size: 3em;
-  font-weight: 700;
+  font-size: 2.5em;
+  font-weight: bold;
   color: #fff;
+  margin-bottom: 20px;
   text-shadow: 0 0 16px #000;
 }
 
 .tHelper {
   text-align: center;
-  font-size: 1.6em;
-  font-weight: 700;
+  font-size: 1.2em;
   color: #fff;
   text-shadow: 0 0 16px #000;
 }
@@ -84,7 +99,7 @@ video {
     background-color: #2B2B2B;
     font-size: 1.5em;
     box-sizing: border-box;
-    padding: 50px;
+    padding: 35px;
     padding-left: 100px;
 
     &:nth-child(even) {
@@ -98,7 +113,7 @@ video {
       left: 0;
       top: 0;
       bottom: 0;
-      line-height: 130px;
+      line-height: 102px;
       text-align: center;
       color: #4a90e2;
       font-size: 2.4em;
@@ -121,9 +136,11 @@ video {
   text-align: center;
   text-shadow: 0 0 16px #000;
   font-size: 2em;
+  color: #fff;
 }
 
 .tResult {
+  color: #fff;
   font-size: 4em;
   text-align: center;
 
@@ -135,6 +152,7 @@ video {
 
 .tScore {
   margin-bottom: 15px;
+  font-size: 1.7em;
 }
 
 .qBar {
@@ -161,6 +179,61 @@ video {
 
     &.active {
       height: 50px;
+    }
+  }
+}
+
+#progress-timeout {
+  background: rgba(0, 0, 0, .3);
+  height: 10px;
+  overflow: hidden;
+
+  .progress-track {
+    top: 0;
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    transform: translateX(-100%);
+    transition: transform .8s linear;
+    left: -100%;
+
+    background: #4A90E2;
+  }
+}
+
+.question-upcoming-notification {
+  color: #fff;
+  position: absolute;
+  z-index: 10;
+  bottom: 40px;
+  right: 20px;
+  font-size: 30px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity .2s ease-out;
+  tr
+  &.hidden {
+    opacity: 0;
+  }
+
+  > p {
+    text-shadow: 0 0 16px #000;
+  }
+
+  .notification-circle {
+    width: 220px;
+    height: 220px;
+
+    border-radius: 110px;
+    background-color: #4A90E2;
+    padding-top: 55px;
+    font-size: 24px;
+    margin: 10px auto;
+    .time {
+      display: block;
+      font-size: 74px;
     }
   }
 }

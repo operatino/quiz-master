@@ -2,6 +2,7 @@ window.Nav = {
   buttons : [],
   getTargetIndex: function (dir) {
     var currentIndex = Nav._currentActiveIndex;
+    var bodyEl = window.document.body;
     var targetIndex;
 
     if (dir == 'next') {
@@ -25,6 +26,10 @@ window.Nav = {
         return currentIndex;
       }
     } else if (dir == 'up') {
+      if (currentIndex <= 7) {
+        bodyEl.scrollTop = 0;
+      }
+
       targetIndex = currentIndex - this.itemsInRow;
       if (this.buttons[targetIndex]) {
         return targetIndex;
@@ -119,9 +124,6 @@ window.Nav = {
   },
 
   openGameCenter: function () {
-    console.log('openGameCenter');
-
-    console.log('openGame');
     try {
       Nav._openIFrame('./app/index.html');
     } catch (e) {
@@ -130,7 +132,6 @@ window.Nav = {
   },
 
   openGame: function () {
-    console.log('openGame');
     try {
       Nav._openIFrame('./2048/index.html');
     } catch (e) {
