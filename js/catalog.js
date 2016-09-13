@@ -19,19 +19,8 @@
 
   var handleGetDataComplete = function (data) {
     drawTiles(data.responseJSON.data);
-    showTiles();
+    window.Nav.init('a.tile', 6);
     document.querySelector('.page.loading').classList.remove('loading');
-  };
-
-  var showTiles = function() {
-    TweenMax.staggerFrom(tiles, .2, {
-      delay: 1,
-      y: 800,
-      scale: .1,
-      ease: Quad.easeOut,
-    }, .02, function() {
-      window.Nav.init('a.tile', 6);
-    })
   };
 
   var drawTiles = function (vods) {
