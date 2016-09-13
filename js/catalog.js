@@ -19,7 +19,7 @@
 
   var handleGetDataComplete = function (data) {
     drawTiles(data.responseJSON.data);
-    window.Nav.init('a.tile', 6);
+    window.Nav.init('a.tile, .facebook', 6);
     document.querySelector('.page.loading').classList.remove('loading');
   };
 
@@ -58,3 +58,17 @@
   init();
 
 })();
+
+var loginFB = function(el) {
+  var classes = el.className;
+  if (classes.match(/loading/g)) {
+    return;
+  }
+  
+  el.className = 'facebook loading';
+  el.innerText = 'Loading...';
+  
+  setTimeout(function () {
+    window.location.href = './fb.html'
+  }, 2000);
+};

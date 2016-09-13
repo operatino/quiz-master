@@ -14,7 +14,10 @@
 
     <section class="page loading">
         <div class="catalog">
-            <h1 class="page-title">Select a movie to quiz (v0.0.3)</h1>
+            <h1 class="page-title">
+              Select a movie to quiz (v0.0.3)
+              <button onclick='return loginFB(this)' class='facebook' id='facebook'>Login with FB</button>
+            </h1>
 
             <a class="tile" href="player.html?movieId=iuh287yger">
                 <img src="./img/poster.png" class="tile--poster" alt="poster">
@@ -27,5 +30,15 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/catalog.js"></script>
+    
+    <script>
+    var logged = sessionStorage.getItem('logged');
+    
+    if (logged) {
+      document.getElementById('facebook').style.display = 'none';
+    }
+    
+    document.querySelector('a.tile').focus();
+    </script>
 </body>
 </html>
