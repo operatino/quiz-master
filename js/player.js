@@ -240,15 +240,15 @@
 
     var key = event.which || event.keyCode;
 
-    if (key === 413) {
+    if (key === 413 || key === 48) {
       return this.redirectTo('end.html');
     }
 
-    if (key === 415) {
+    if (key === 415 || key === 13) {
       return this.playPause();
     }
 
-    if (key === 461) {
+    if (key === 461 || key === 27) {
       return this.redirectTo('index.html');
     }
 
