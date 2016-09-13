@@ -1,0 +1,214 @@
+.constants {
+  color: red;
+}
+/*	Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+--------------------------------------------------------------------------------------- */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.header {
+  position: relative;
+  background: #333;
+  width: 100%;
+  height: 70px;
+}
+.logo {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  bottom: 0;
+  margin: auto;
+  font: 0/0 'a';
+  width: 146px;
+  height: 55.5px;
+  background: url(../img/logo.png) no-repeat center;
+  background-size: 146px 55.5px;
+}
+.tile {
+  width: 300px;
+  padding: 10px;
+  margin: 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  overflow: hidden;
+}
+.tile:hover,
+.tile:focus {
+  outline: none;
+}
+.tile:hover .tile--title,
+.tile:focus .tile--title {
+  background: #999;
+  color: #000;
+}
+.tile:hover .tile--poster,
+.tile:focus .tile--poster {
+  transform: scale(1.01) translateY(-2px);
+}
+.tile--poster {
+  width: 280px;
+  height: 404px;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.1s ease-out;
+}
+.tile--title {
+  background: #333;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px 10px;
+  margin: 0;
+  min-height: 55px;
+  line-height: 1;
+  width: 100%;
+  color: #fff;
+  display: inline-block;
+  transition: all 0.2s ease-out;
+}
+.catalog {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 0 70px;
+  display: block;
+  font-size: 0;
+}
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'InterstatePro', sans-serif;
+  font-size: 18px;
+}
+.page {
+  background: #161616;
+}
+.page-title {
+  font-size: 50px;
+  color: #fff;
+  padding-left: 10px;
+  margin: 15px 0 20px;
+}

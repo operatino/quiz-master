@@ -1,0 +1,42 @@
+.tile {
+  width: 300px;
+  padding: 10px;
+  margin: 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  overflow: hidden;
+}
+.tile:hover,
+.tile:focus {
+  outline: none;
+}
+.tile:hover .tile--title,
+.tile:focus .tile--title {
+  background: #999;
+  color: #000;
+}
+.tile:hover .tile--poster,
+.tile:focus .tile--poster {
+  transform: scale(1.01) translateY(-2px);
+}
+.tile--poster {
+  width: 280px;
+  height: 404px;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.1s ease-out;
+}
+.tile--title {
+  background: #333;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px 10px;
+  margin: 0;
+  min-height: 55px;
+  line-height: 1;
+  width: 100%;
+  color: #fff;
+  display: inline-block;
+  transition: all 0.2s ease-out;
+}
