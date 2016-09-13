@@ -50,7 +50,6 @@
 
   Player.prototype.init = function (url, questions, config) {
     if (this._initiated) {
-      console.warn('Player already initiated!');
       return this;
     }
 
@@ -94,7 +93,10 @@
   };
 
   Player.prototype.scoreBoard = function () {
-    this.redirectTo('./end.html');
+    var _this = this;
+    setTimeout(function () {
+      _this.redirectTo('./end.html');
+    }, 1000);
   }
 
   Player.prototype.timeUpdate = function () {
@@ -237,10 +239,14 @@
         answer = 3;
       }
       
-      var element = document.getElementById('answer-' + answer);
+      if (typeof answer === 'number') {
+        var element = document.getElementById('answer-' + answer);
       
-      return this.handleResponse(element, answer);
+        return this.handleResponse(element, answer);
+      }
     }
+    
+    return this;
   };
   
   Player.prototype.handleResponse = function (element, answer) {

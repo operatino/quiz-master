@@ -27,8 +27,7 @@
     <% if (finished) { %>
       <div class='tUr'>You are</div>
       <div class='tResult'>
-        <span class='<%=(!isCorrect ? 'selected' : '')%>'>Right</span>
-        <span class='<%=(isCorrect ? 'selected' : '')%>'>Wrong</span>
+        <span><%=(isCorrect ? 'Right' : 'Wrong')%></span>
       </div>
 
       <div class='tScore'>Score: <%=score%></div>
@@ -61,14 +60,14 @@
   <script>
   var url = 'http://d.pr/v/19np2+';
   var questions = {
-    6: {
-      offset: 4,
-      question: 'What did T-800 ask?',
+    7: {
+      offset: 3,
+      question: 'I need your clothes, your boots, and...',
       answers: [
-        'The route',
-        'Money',
-        'Sunglasses',
-        'Clothes, boots, motorcycle'
+        '...your money',
+        '...your woman',
+        '...your sunglasses',
+        '...your motorcycle'
       ],
       correctAnswer: 3
     },
