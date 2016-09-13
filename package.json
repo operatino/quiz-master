@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "gh-pages-travis": "gh-pages-travis",
     "start": "http-server .",
     "build": "less-cli ./css",
     "dev": "watch 'npm run build' ./css",

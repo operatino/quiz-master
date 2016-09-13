@@ -2,10 +2,10 @@ language: node_js
 node_js:
   - '6'
 script: npm install && npm run build
-after_sucess:
-  - npm run gh-pages-travis
+after_sucess: npm run gh-pages-travis
 env:
   global:
+    - NODE_ENV="production"
     - GIT_NAME="QuizMaster Bot"
     - SOURCE_DIR="./"
     - DEPLOY_BRANCH="master"
