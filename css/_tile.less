@@ -1,8 +1,7 @@
 .tile {
-  max-width: 229px;
-  width: 100%;
+  width: 300px;
 
-  padding: 1%;
+  padding: 10px;
   margin: 0;
 
   display: inline-block;
@@ -19,18 +18,18 @@
       color: #000;
     }
     .tile--poster {
-      transform: scale(1.05) translateY(7px);
+      transform: scale(1.01) translateY(-2px);
     }
   }
 }
 
 .tile--poster {
-  width: 100%;
-  height: auto;
+  width: 280px;
+  height: 404px;
   padding: 0;
   margin: 0;
 
-  transition: transform.2s ease-out;
+  transition: transform .1s ease-out;
 }
 
 .tile--title {
@@ -38,11 +37,11 @@
   font-size: 14px;
   font-weight: bold;
 
-  padding: 3px 10px;
+  padding: 20px 10px;
   margin: 0;
 
-  height: 55px;
-  line-height: 55px;
+  min-height: 55px;
+  line-height: 1;
   width: 100%;
 
   color: #fff;
