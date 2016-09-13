@@ -168,6 +168,9 @@ table {
   background: #999;
   color: #000;
 }
+.loading .tile {
+  visibility: hidden;
+}
 .tile--poster {
   width: 200px;
   height: 264px;

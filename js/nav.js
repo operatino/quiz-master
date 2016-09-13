@@ -67,6 +67,7 @@ window.Nav = {
 
   init: function (selector, limit) {
     this.itemsInRow = limit;
+    console.log('selector', selector);
     document.body.addEventListener('keydown', function (e) {
 
       switch(e.keyCode) {
@@ -107,6 +108,7 @@ window.Nav = {
   },
 
   _activate: function (id) {
+    console.log('activate', id)
     if (Nav._currentActiveNode) {
       this._deactivate(Nav._currentActiveNode);
     }
