@@ -6,12 +6,10 @@ body {
   font-size: 16px;
   font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
 }
-
 .player {
   width: 1920px;
   height: 1080px;
 }
-
 video {
   width: 100%;
   top: 0;
@@ -22,8 +20,8 @@ video {
   margin: auto;
   z-index: 1;
 }
-
-#answer, #question {
+#answer,
+#question {
   display: none;
   z-index: 3;
   position: absolute;
@@ -31,7 +29,6 @@ video {
   left: 10%;
   bottom: 10%;
 }
-
 .seekBar {
   z-index: 2;
   position: absolute;
@@ -41,7 +38,6 @@ video {
   box-sizing: border-box;
   border-bottom: 5px solid #D8D8D8;
 }
-
 .progress {
   position: absolute;
   width: 0;
@@ -50,15 +46,9 @@ video {
   height: 10px;
   background-color: #4A90E2;
 }
-
 .player {
   position: relative;
 }
-
-#question {
-  
-}
-
 .tQuestion {
   text-align: center;
   font-size: 4em;
@@ -66,7 +56,6 @@ video {
   color: #fff;
   text-shadow: 0 0 16px #000;
 }
-
 .tHelper {
   text-align: center;
   font-size: 1.6em;
@@ -74,98 +63,87 @@ video {
   color: #fff;
   text-shadow: 0 0 4px #000;
 }
-
 .tQuestions {
   padding: 0;
   margin: 0;
   margin-top: 2%;
-  
-  button {
-    position: relative;
-    appearance: none;
-    border: 0;
-    text-align: left;
-    color: #fff;
-    font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
-    display: block;
-    float: left;
-    width: 48%;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    background-color: #2B2B2B;
-    font-size: 1.5em;
-    box-sizing: border-box;
-    padding: 50px;
-    padding-left: 100px;
-    
-    span {
-      position: absolute;
-      width: 75px;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      line-height: 130px;
-      text-align: center;
-      color: #4a90e2;
-      font-size: 2.4em;
-      background-color: #000;
-    }
-    
-    &.selected {
-      background-color: #D3D3D3;
-      color: #000;
-    }
-    
-    &.hidden {
-      opacity: .3;
-    }
-  }
 }
-
-.tUr, .tResult, .tScore {
+.tQuestions button {
+  position: relative;
+  appearance: none;
+  border: 0;
+  text-align: left;
+  color: #fff;
+  font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
+  display: block;
+  float: left;
+  width: 48%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  background-color: #2B2B2B;
+  font-size: 1.5em;
+  box-sizing: border-box;
+  padding: 50px;
+  padding-left: 100px;
+}
+.tQuestions button span {
+  position: absolute;
+  width: 75px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  line-height: 130px;
+  text-align: center;
+  color: #4a90e2;
+  font-size: 2.4em;
+  background-color: #000;
+  font-weight: bold;
+}
+.tQuestions button.selected {
+  background-color: #D3D3D3;
+  color: #000;
+}
+.tQuestions button.hidden {
+  opacity: .3;
+}
+.tUr,
+.tResult,
+.tScore {
   text-align: center;
   text-shadow: 0 0 16px #000;
   font-size: 2em;
 }
-
 .tResult {
   font-size: 4em;
   text-align: center;
-  
-  span {
-    display: inline-block;
-    width: 400px;
-  }
 }
-
+.tResult span {
+  display: inline-block;
+  width: 400px;
+}
 .tScore {
   margin-bottom: 15px;
 }
-
 .qBar {
   position: absolute;
   left: 0;
   bottom: 5px;
   width: 100%;
   z-index: 2;
-  
-  > div {
-    position: absolute;
-    bottom: 0;
-    width: 4px;
-    height: 22px;
-    background-color: #fff;
-    
-    &.true {
-      background-color: #7ED321;
-    }
-    
-    &.false {
-      background-color: red;
-    }
-    
-    &.active {
-      height: 50px;
-    }
-  }
+}
+.qBar > div {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 22px;
+  background-color: #fff;
+}
+.qBar > div.true {
+  background-color: #7ED321;
+}
+.qBar > div.false {
+  background-color: red;
+}
+.qBar > div.active {
+  height: 50px;
 }
