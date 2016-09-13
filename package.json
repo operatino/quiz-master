@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server .",
+    "build": "less-cli ./css",
+    "dev": "watch 'npm run build' ./css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +24,10 @@
     "jquery": "^3.1.0"
   },
   "devDependencies": {
-    "http-server": "^0.9.0"
+    "http-server": "^0.9.0",
+    "less": "^2.7.1",
+    "less-cli": "^1.0.0",
+    "lesswatch": "0.0.4",
+    "watch": "^0.19.2"
   }
 }

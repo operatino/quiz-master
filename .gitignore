@@ -7,3 +7,4 @@
 
 # Project
 node_modules
+/css/*.css
