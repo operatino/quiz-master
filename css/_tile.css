@@ -9,6 +9,8 @@
   font-size: 0;
   overflow: hidden;
   transform-origin: center;
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
 }
 .tile.active {
   outline: none;
@@ -19,7 +21,7 @@
   color: #000;
 }
 .loading .tile {
-  visibility: hidden;
+  opacity: 0;
 }
 .tile--poster {
   width: 300px;

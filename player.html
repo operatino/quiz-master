@@ -21,6 +21,7 @@
 
     <div id="question"></div>
     <div id="answer"></div>
+    <progress id="progress" min="0" max="100" value="0"></progress>
 
   </div>
 
@@ -63,23 +64,23 @@
   var questions = {
     7: {
       offset: 3,
-      question: 'I need your clothes, your boots...',
+      question: 'I need your clothes, your boots and your...',
       answers: [
-        '...and your money',
-        '...and your woman',
-        '...and your sunglasses',
-        '...and your motorcycle'
+        'money',
+        'woman',
+        'sunglasses',
+        'motorcycle'
       ],
       correctAnswer: 3
     },
 
     30: {
       offset: 5,
-      question: 'John wants T-800',
+      question: 'John wants T-800 to',
       answers: [
-        'brings an ice-cream',
-        'stays on one foot',
-        'sings a song',
+        'bring an ice-cream',
+        'stand on one foot',
+        'sing a song',
         'save Sarah'
       ],
       correctAnswer: 1
@@ -87,7 +88,7 @@
 
     45: {
       offset: 5,
-      question: 'What T-800 is gonna to do?',
+      question: 'What\'s T-800 is going to do?',
       answers: [
         'Smile',
         'Drink',

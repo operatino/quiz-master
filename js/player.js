@@ -21,6 +21,7 @@
     this._stored = false,
     this._isPlaying = true,
     this._aBlock;
+    this._progress;
   };
 
   Player.prototype.setDefaultValues = function () {
@@ -43,6 +44,7 @@
     this._qBarTemplate = _.template(document.getElementById('qbar-template').innerHTML);
     this._qBlock = document.getElementById("question");
     this._aBlock = document.getElementById("answer");
+    this._progress = document.getElementById("progress");
 
 
     return this;
@@ -186,8 +188,20 @@
     this._qBlock.innerHTML = questionHTML;
     this._qBlock.style.display = 'block';
     this._video.pause();
+    this.startAnsweringTimeout();
+
     return this.printQbar(true);
   };
+
+  Player.prototype.startAnsweringTimeout = function() {
+
+    // setInterval(function() {
+    //   this._progress.value = 1;
+    // }, 1000);
+    // setTimeout(function() {
+    //   this.endTimeout();
+    // }, 30000);
+  },
 
   Player.prototype.setKeyEvents = function () {
     document.body.addEventListener('keyup', this.handleKeyUp.bind(this));

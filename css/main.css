@@ -159,6 +159,8 @@ table {
   font-size: 0;
   overflow: hidden;
   transform-origin: center;
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
 }
 .tile.active {
   outline: none;
@@ -169,7 +171,7 @@ table {
   color: #000;
 }
 .loading .tile {
-  visibility: hidden;
+  opacity: 0;
 }
 .tile--poster {
   width: 300px;
@@ -204,14 +206,6 @@ table {
   padding: 30px 0 70px;
   display: block;
   font-size: 0;
-}
-body {
-  background-color: #000;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
 }
 .player {
   width: 1920px;
@@ -268,7 +262,7 @@ video {
   font-size: 1.6em;
   font-weight: 700;
   color: #fff;
-  text-shadow: 0 0 4px #000;
+  text-shadow: 0 0 16px #000;
 }
 .tQuestions {
   padding: 0;
@@ -277,11 +271,9 @@ video {
 }
 .tQuestions button {
   position: relative;
-  appearance: none;
-  border: 0;
+  border: none;
   text-align: left;
   color: #fff;
-  font-family: 'Interstate Pro', 'Helvetica Neue', 'Helvetica', 'sans-serif';
   display: block;
   float: left;
   width: 48%;
@@ -434,7 +426,7 @@ video {
 }
 html,
 body {
-  font-family: 'InterstatePro', sans-serif;
+  font-family: 'InterstatePro', 'Interstate Pro', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 18px;
   width: 100%;
   height: 100%;
