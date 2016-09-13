@@ -1,0 +1,53 @@
+.tile {
+  max-width: 229px;
+  width: 100%;
+
+  padding: 1%;
+  margin: 0;
+
+  display: inline-block;
+  vertical-align: top;
+
+  font-size: 0;
+  overflow: hidden;
+
+  &:hover, &:focus {
+    outline: none;
+
+    .tile--title {
+      background: #999;
+      color: #000;
+    }
+    .tile--poster {
+      transform: scale(1.05) translateY(7px);
+    }
+  }
+}
+
+.tile--poster {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+
+  transition: transform.2s ease-out;
+}
+
+.tile--title {
+  background: #333;
+  font-size: 14px;
+  font-weight: bold;
+
+  padding: 3px 10px;
+  margin: 0;
+
+  height: 55px;
+  line-height: 55px;
+  width: 100%;
+
+  color: #fff;
+
+  display: inline-block;
+
+  transition: all .2s ease-out;
+}
