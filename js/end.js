@@ -17,7 +17,7 @@
   });
 
   scores.forEach(function(score) {
-    $scoresEl += '<span>' + score.name + ': ' + score.score + '</span>'
+    $scoresEl += '<span class="' + (score.name === myName ? 'is-me' : '') + '">' + score.name + ': ' + score.score + '</span>'
   });
 
   userAnswers.forEach(function(answer) {
@@ -31,11 +31,12 @@
   $el.find('#answers').html($answerEl);
 
   $(window).keypress(function (e) {
-    console.log(e.keyCode);
-    if (e.keyCode === 0 || e.keyCode === 32 || e.keyCode === 461) {
+    if (e.keyCode === 0 || e.keyCode === 32 || e.keyCode === 461 || e.keyCode === 8) {
       e.preventDefault()
       window.location.href = './index.html';
     }
   });
+
+  $("#back-btn").focus();
 
 })();
