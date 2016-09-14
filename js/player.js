@@ -364,9 +364,13 @@
     var answerHTML = this._template(answerObject);
     this._aBlock.innerHTML = answerHTML;
     this._aBlock.style.display = 'block';
+    this._aBlock.classList.add('anticipation');
 
     soundOEl.play();
 
+    setTimeout(function () {
+      _this._aBlock.classList.remove('anticipation');
+    }, 400);
     setTimeout(function () {
       _this.hideAnswer().printQbar(false);
 
