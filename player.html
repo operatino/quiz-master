@@ -7,6 +7,14 @@
 </head>
 <body>
   <div class='player'>
+    <audio id="audio-correct">
+      Your browser does not support the <code>audio</code> element.
+      <source src="media/correct.wav" type="audio/wav">
+    </audio>
+    <audio id="audio-wrong">
+      Your browser does not support the <code>audio</code> element.
+      <source src="media/wrong.wav" type="audio/wav">
+    </audio>
 
     <div class='player-loading'>Loading...</div>
 
@@ -42,7 +50,7 @@
     <% if (finished) { %>
       <div class='tUr'>You are</div>
       <div class='tResult'>
-        <span><%=(isCorrect ? 'Right' : 'Wrong')%></span>
+        <span><%=(isCorrect ? '<span class="tResult-right">Right</span>' : '<span class="tResult-wrong">Wrong</span>')%></span>
       </div>
 
       <div class='tScore'>Score: <%=score%></div>

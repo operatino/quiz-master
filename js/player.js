@@ -345,11 +345,15 @@
   Player.prototype.showAnswer = function (time, answer) {
     var answerObject = this._questions[answer.id];
     var _this = this;
+    var soundOEl;
     answerObject.finished = true;
     answerObject.isCorrect = String(this._answers[String(answer.id)]) === String(answerObject.correctAnswer);
 
     if (answerObject.isCorrect) {
       this._score += 1;
+      soundOEl = document.getElementById('audio-correct');
+    } else {
+      soundOEl = document.getElementById('audio-wrong');
     }
 
     answerObject.score = this._score;
@@ -359,6 +363,8 @@
     var answerHTML = this._template(answerObject);
     this._aBlock.innerHTML = answerHTML;
     this._aBlock.style.display = 'block';
+
+    soundOEl.play();
 
     setTimeout(function () {
       _this.hideAnswer().printQbar(false);
