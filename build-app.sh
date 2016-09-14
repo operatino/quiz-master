@@ -10,6 +10,7 @@ cp -R img tmp/com.appathon.app.QuizMaster/Contents/App/img
 cp -R js tmp/com.appathon.app.QuizMaster/Contents/App/js
 cp -R lib tmp/com.appathon.app.QuizMaster/Contents/App/lib
 cp -R media tmp/com.appathon.app.QuizMaster/Contents/App/media
+cp metadata.json tmp/com.appathon.app.QuizMaster/Contents/metadata.json
 find . -name \*.html -maxdepth 1 -exec cp {} tmp/com.appathon.app.QuizMaster/Contents/App \;
 
 mkdir tmp/prod-modules
