@@ -1,6 +1,6 @@
 'use strict';
 
-(function (window/*, $*/) {
+(function (window, $) {
 
   var Player = function () {
     this._video,
@@ -206,6 +206,17 @@
       }));
     }, 1000);
   };
+  
+  Player.prototype.handleAnswerClick = function (event) {
+    var _el = event.target;
+    if (_el) {
+      var answer = event.target.getAttribute('rel');
+
+      return this.handleResponse(_el, answer);
+    }
+    
+    return this;
+  };
 
   Player.prototype.showQuestion = function (time, question) {
     question.finished = false;
@@ -219,6 +230,10 @@
     this._qBlock.style.display = 'block';
     this._video.pause();
     this.startAnsweringTimeout();
+    
+    for (var i = 0; i < 4; ++i) {
+      document.getElementById('answer-' + i).addEventListener('click', this.handleAnswerClick.bind(this), true);
+    }
 
     return this.printQbar(true);
   };
@@ -384,5 +399,5 @@
 
   window.Player = new Player();
 
-})(window/*, jQuery*/);
+})(window, jQuery);
 
