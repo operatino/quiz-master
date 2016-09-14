@@ -380,12 +380,16 @@
     this._aBlock.innerHTML = answerHTML;
     this._aBlock.style.display = 'block';
     this._aBlock.classList.add('anticipation');
+    this._aBlock.classList.add('anticipation2');
 
     soundOEl.play();
 
     setTimeout(function () {
       _this._aBlock.classList.remove('anticipation');
     }, 400);
+    setTimeout(function () {
+      _this._aBlock.classList.remove('anticipation2');
+    }, 700);
     setTimeout(function () {
       _this.hideAnswer().printQbar(false);
 

@@ -71,7 +71,12 @@
                 <tbody>
                 </tbody>
             </table>
+
+            <div class="bottom-buttons">
+                <a id="back-btn" class="back-btn" href="./index.html" >Back to catalog</a>
+            </div>
         </div>
+
     </div>
 
 </section>
@@ -83,19 +88,19 @@
 <script src="js/create.js"></script>
 <script type="text/javascript">
 
-    var movieId = 1;
     var create = new Create();
     create.init($('.page'));
-
-    var questions = [{
-        movieId: movieId,
-        question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elif?',
-        time: 10000
-    }];
 
     create.addQuestion({id: 'row' + (new Date().getTime() - 99), question: 'I need your clothes, your boots and your...', time: '00:00:07'});
     create.addQuestion({id: 'row' + (new Date().getTime() - 100), question: 'John wants T-800 to', time: '00:00:30'});
     create.addQuestion({id: 'row' + (new Date().getTime() - 101), question: 'What is T-800 going to do?', time: '00:00:45'});
+
+    $(window).keypress(function(e) {
+        if (e.keyCode === 0 || e.keyCode === 32 || e.keyCode === 461 || e.keyCode === 8) {
+            e.preventDefault();
+            window.location.href = './index.html';
+        }
+    });
 
 </script>
 </body>
