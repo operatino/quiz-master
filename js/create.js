@@ -8,7 +8,7 @@ Number.prototype.toHHMMSS = function () {
   if (minutes < 10) {minutes = "0"+minutes;}
   if (seconds < 10) {seconds = "0"+seconds;}
   return hours+':'+minutes+':'+seconds;
-}
+};
 
 function Create() {
   var _this = this;
@@ -32,9 +32,8 @@ function Create() {
     mediaElement.played.end();      // Retourneert het aantal seconden dat de browser heeft afgespeeld*/
 
     setInterval(function() {
-      console.log('Blaaaa111');
       _this.$el.find('#time').html(_this.$videoEl.currentTime.toHHMMSS());
-    }, 1000)
+    }, 1000);
 
     this.$el.find('#add-question').click(function(e) {
 
@@ -60,7 +59,7 @@ function Create() {
   }
 
   this.addQuestion = function(obj) {
-    _this.$questions.prepend('<li>' + obj.question + ' ' + obj.time + ' - <span>edit</span> - <span>remove</span></li>')
+    _this.$questions.prepend('<tr><td>' + obj.time + '</td><td>' + obj.question + '</td><td><span>edit</span> - <span>remove</span></td></tr>')
 
 
     _this.$videoEl.play();
@@ -68,11 +67,11 @@ function Create() {
 
   this.startVideo = function() {
 
-  }
+  };
 
   this.createQuestion = function() {
 
-  }
+  };
 
   return this;
 };
