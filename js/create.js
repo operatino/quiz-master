@@ -35,7 +35,15 @@ function Create() {
       _this.$el.find('#time').html(_this.$videoEl.currentTime.toHHMMSS());
     }, 200);
 
+    this.$el.find('#pause').click(function(e) {
+      e.preventDefault();
+      _this.$videoEl.pause();
+    });
 
+    this.$el.find('#play').click(function(e) {
+      e.preventDefault();
+      _this.$videoEl.play();
+    });
 
     this.$el.find('#add-question').click(function(e) {
 
