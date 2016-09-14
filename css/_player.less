@@ -104,7 +104,7 @@
     padding: 35px;
     padding-left: 100px;
 
-    transition: opacity .3s ease-out, transform .3s ease-in;
+    transition: opacity .2s ease-out, transform .14s ease-in;
 
     &:nth-child(even) {
       margin-right: 0;
@@ -150,7 +150,7 @@
   text-align: center;
   opacity: 1;
 
-  transition: opacity .2s ease-in, transform .2s ease-out;
+  transition: opacity .14s ease-out, transform .12s ease-out;
 
   span {
     display: inline-block;
@@ -261,14 +261,15 @@
 }
 
 
-#answer.anticipation {
+#answer.anticipation2 {
   .tResult {
-    transform: scale(.4) transformY(-15px);
+    transform: scale(.4) transformY(-20px);
     opacity: 0;
   }
+}
+#answer.anticipation {
   .tQuestions button.hidden {
     transform: scale(1);
     opacity: 1;
-
   }
 }
