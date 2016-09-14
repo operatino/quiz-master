@@ -1,17 +1,38 @@
 .create-page {
   color: #fff;
-  background: #555;
+  background: #000;
   min-height: 650px;
   display: block;
+  font-size: 16px;
+}
+.create-page button {
+  background: #4A90E2;
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  border: none;
+  color: #fff;
+}
+.create-page #time {
+  margin-bottom: 20px;
+}
+.create-page .select-correct {
+  margin-top: 5px;
+  display: inline-block;
+}
+.create-page .form-buttons {
+  text-align: right;
+  display: inline-block;
+  float: right;
 }
 .create-page .video-player {
-  width: 300px;
+  width: 400px;
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
 }
 .create-page .create-actions {
-  width: 130px;
+  width: 150px;
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
@@ -50,7 +71,11 @@
   display: block;
   padding: 20px 10px;
 }
+.create-top {
+  height: 250px;
+}
 .create-bottom {
   width: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  min-height: 400px;
+  background: #2A2A2A;
 }

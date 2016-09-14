@@ -21,7 +21,9 @@
 
             <div class="create-actions">
                 <div id="time">00:00:00</div>
-                <div id="add-question">Add question</div>
+                <button id="add-question">Add question</button>
+                <button id="play">Play</button>
+                <button id="pause">Pause</button>
             </div>
 
             <form id="add-question-form" class="add-question-form" style="display: none;">
@@ -40,17 +42,20 @@
                 <div>
                     <input name="answer4" id="answer4" type="text" placeholder="Answer 4">
                 </div>
-                <div>
-                    <label for="answer">Correct answer:</label>
-                    <select name="answer" id="answer">
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                        <option value="4">Option 4</option>
+                <div class="select-correct">
+                    <label for="answer-select">Correct answer:</label>
+                    <select name="answer" id="answer-select">
+                        <option value="" disabled selected>Select the correct answer</option>
+                        <option value="1">Question 1</option>
+                        <option value="2">Question 2</option>
+                        <option value="3">Question 3</option>
+                        <option value="4">Question 4</option>
                     </select>
                 </div>
-                <button id="save-form">Save</button>
-                <button id="cancel-form">Cancel</button>
+                <div class="form-buttons">
+                    <button id="save-form">Save</button>
+                    <button id="cancel-form">Cancel</button>
+                </div>
             </form>
         </div>
 
@@ -91,9 +96,6 @@
     create.addQuestion({id: 'row' + (new Date().getTime() - 99), question: 'Lorem ipsum dolor sit amet, consectetur adip?', time: '00:03'});
     create.addQuestion({id: 'row' + (new Date().getTime() - 100), question: 'Lorem ipsum dolor sit amet, consectetur?', time: '00:02'});
     create.addQuestion({id: 'row' + (new Date().getTime() - 101), question: 'Lorem ipsum dolor sit amet, consectetur adipiscing bla?', time: '00:01'});
-
-
-
 
 </script>
 </body>
