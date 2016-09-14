@@ -88,6 +88,7 @@
   box-sizing: border-box;
   padding: 35px;
   padding-left: 100px;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-in;
 }
 .tQuestions button:nth-child(even) {
   margin-right: 0;
@@ -111,6 +112,7 @@
   color: #000;
 }
 .tQuestions button.hidden {
+  transform: scale(0.95);
   opacity: .3;
 }
 .tUr,
@@ -125,10 +127,13 @@
   color: #fff;
   font-size: 4em;
   text-align: center;
+  opacity: 1;
+  transition: opacity 0.2s ease-in, transform 0.2s ease-out;
 }
 .tResult span {
   display: inline-block;
   width: 400px;
+  font-weight: bold;
 }
 .tScore {
   margin-bottom: 15px;
@@ -212,4 +217,12 @@ tr .question-upcoming-notification.hidden {
 }
 .tResult-wrong {
   color: red;
+}
+#answer.anticipation .tResult {
+  transform: scale(0.4) transformY(-15px);
+  opacity: 0;
+}
+#answer.anticipation .tQuestions button.hidden {
+  transform: scale(1);
+  opacity: 1;
 }
