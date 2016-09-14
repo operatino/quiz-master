@@ -35,6 +35,8 @@ function Create() {
       _this.$el.find('#time').html(_this.$videoEl.currentTime.toHHMMSS());
     }, 1000);
 
+
+
     this.$el.find('#add-question').click(function(e) {
 
       e.preventDefault();
@@ -47,20 +49,56 @@ function Create() {
     this.$el.find('#save-form').click(function(e) {
       e.preventDefault();
       var q = {
-        question: _this.$el.find('input[name=question]').val(),
+        id: 'row' + new Date().getTime(),
+        question: _this.$el.find('input[name=question-input]').val(),
         time: _this.$videoEl.currentTime.toHHMMSS()
       }
+
+
+
       _this.addQuestion(q);
       _this.$form[0].reset();
       _this.$form.hide();
+
+      //remove-row
+/*      _this.$el.find('.remove-row').click(function(e) {
+        console.log('Click');
+        $(this).closest("tr").remove();
+      });*/
+
     });
 
+    this.$el.find('#cancel-form').click(function(e) {
+      e.preventDefault();
+      var q = {
+        id: 'row' + new Date().getTime(),
+        question: _this.$el.find('input[name=question-input]').val(),
+        time: _this.$videoEl.currentTime.toHHMMSS()
+      }
+
+
+
+      _this.addQuestion(q);
+      _this.$form[0].reset();
+      _this.$form.hide();
+
+      //remove-row
+      /*      _this.$el.find('.remove-row').click(function(e) {
+       console.log('Click');
+       $(this).closest("tr").remove();
+       });*/
+
+    });
     console.log(this.$videoEl);
   }
 
   this.addQuestion = function(obj) {
-    _this.$questions.prepend('<tr><td>' + obj.time + '</td><td>' + obj.question + '</td><td><span>edit</span> - <span>remove</span></td></tr>')
+    _this.$questions.prepend('<tr class="' + obj.id + '"><td>' + obj.time + '</td><td>' + obj.question + '</td><td><span class="edit-row">edit</span> - <span class="remove-row">remove</span></td></tr>')
 
+    _this.$el.find('.' + obj.id).click(function(e) {
+      console.log('Click');
+      $(this).closest("tr").remove();
+    });
 
     _this.$videoEl.play();
   };
