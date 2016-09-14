@@ -107,18 +107,18 @@
   }
 
   Player.prototype.timeUpdate = function () {
-    var currentTime = Math.floor(this._video.currentTime);
+    var currentTime = Math.ceil(this._video.currentTime);
     var value = (100 / this._video.duration) * currentTime;
 
     // Update the slider value
-    this._progress.style.width = value + '%';
+    this._progress.style.width = Math.floor(value) + '%';
 
     this.checkQuestion(currentTime);
     return this;
   };
 
   Player.prototype.printQbar = function (doExpand) {
-    var duration = Math.floor(this._video.duration);
+    var duration = Math.ceil(this._video.duration);
     var _this = this;
 
     var qBarObj = Object.keys(this._questions).map(function (id) {
@@ -126,7 +126,8 @@
       return {
         time: id,
         isCorrect: question.isCorrect,
-        left: (Number(id) / duration) * 100,
+        left: Math.floor((Number(id) / duration) * 100),
+        width: Math.ceil(((question.offset || 5) / duration) * 100) + '%',
         isActive: (doExpand && String(_this._activeQuestion) === String(id) ? true : false)
       };
     });
