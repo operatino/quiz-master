@@ -313,6 +313,7 @@ table {
   top: 0;
   height: 10px;
   background-color: #4A90E2;
+  transition: width 1s linear;
 }
 .player {
   position: relative;
@@ -409,7 +410,7 @@ table {
   position: absolute;
   bottom: 0;
   width: 4px;
-  height: 22px;
+  height: 5px;
   background-color: #fff;
 }
 .qBar > div.true {
@@ -418,8 +419,12 @@ table {
 .qBar > div.false {
   background-color: red;
 }
+.qBar > div.true,
+.qBar > div.false {
+  height: 7px;
+}
 .qBar > div.active {
-  height: 50px;
+  background-color: #4A90E2;
 }
 #progress-timeout {
   background: rgba(0, 0, 0, 0.3);
@@ -653,6 +658,7 @@ body {
   width: 100%;
   min-height: 100%;
   display: block;
+  overflow: hidden;
   padding-top: 70px;
 }
 .page-title {

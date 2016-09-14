@@ -55,6 +55,8 @@
   top: 0;
   height: 10px;
   background-color: #4A90E2;
+
+  transition: width 1s linear;
 }
 
 .player {
@@ -167,7 +169,7 @@
     position: absolute;
     bottom: 0;
     width: 4px;
-    height: 22px;
+    height: 5px;
     background-color: #fff;
 
     &.true {
@@ -178,8 +180,12 @@
       background-color: red;
     }
 
+    &.true, &.false {
+      height: 7px;
+    }
+
     &.active {
-      height: 50px;
+      background-color: #4A90E2;
     }
   }
 }

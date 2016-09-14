@@ -72,7 +72,7 @@
 
   <script type='text/html' id='qbar-template' style='display:none'>
     <% for (var i=0; i<answers.length; i++) { %>
-      <div class='<%=answers[i].isCorrect%> <%=(answers[i].isActive ? 'active' : '')%>' style='left: <%=answers[i].left%>%'></div>
+      <div class='<%=answers[i].isCorrect%> <%=(answers[i].isActive ? 'active' : '')%>' style='left: <%=answers[i].left%>%; width: <%=answers[i].width%>'></div>
     <% } %>
   </script>
 
