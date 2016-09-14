@@ -12,8 +12,10 @@
   appearance: none;
   border: 0;
   color: #fff;
-  background-color: blue;
-  padding: 10px 20px;
+  background-color: #3b5998;
+  text-align: center;
+  width: 190px;
+  padding: 10px 0;
 }
 .facebook.active,
 .facebook:focus {
@@ -26,9 +28,11 @@
   appearance: none;
   border: 0;
   color: #fff;
-  background-color: blue;
-  padding: 10px 20px;
-  padding: 0px 20px;
+  background-color: #3b5998;
+  text-align: center;
+  width: 190px;
+  padding: 10px 0;
+  padding: 0 0;
   margin-left: 10px;
   text-decoration: none;
 }
