@@ -12,11 +12,13 @@
   opacity: 1;
   transition: opacity 0.2s ease-out;
 }
-.tile.active {
+.tile.active,
+.tile:focus {
   outline: none;
   transform: scale(1.03) translateY(-2px);
 }
-.tile.active .tile--title {
+.tile.active .tile--title,
+.tile:focus .tile--title {
   background: #999;
   color: #000;
 }
