@@ -1,6 +1,6 @@
 
 (function(){
-  var catalogEl = document.querySelector('.catalog');
+  var catalogEl = document.querySelector('.catalog-wrapper');
   var tiles = [];
 
   var init = function () {
@@ -19,7 +19,7 @@
 
   var handleGetDataComplete = function (data) {
     drawTiles(data.responseJSON.data);
-    window.Nav.init('a.tile, .button', 6);
+    window.Nav.init('a.tile, .button', 6, 1);
     document.querySelector('.page.loading').classList.remove('loading');
   };
 
@@ -71,15 +71,21 @@ var loginFB = function(el) {
   setTimeout(function () {
     var el = document.getElementById('popup');
     el.className = 'popup show';
+    // document.querySelector('#facebook button').classList.remove('button');
     document.getElementById('facebook').style.display = 'none';
     document.getElementById('login').style.display = 'block';
+    document.querySelector('#login a').classList.add('button');
     
     var newEl = document.querySelector('a.tile:last-child');
     
     var cloned = $(newEl).clone();
     cloned.addClass('challenge');
     
-    $(cloned).insertAfter('.page-title');
+    $('.catalog-wrapper').prepend(cloned);
+    
+    setTimeout(function () {
+      window.Nav.init('a.tile, .button', 6, 1);
+    }, 1000);
     
     // sessionStorage.setItem('logged', 'true');
     

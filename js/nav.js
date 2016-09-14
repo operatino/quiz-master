@@ -26,18 +26,24 @@ window.Nav = {
         return currentIndex;
       }
     } else if (dir == 'up') {
-      if (currentIndex <= 7) {
-        bodyEl.scrollTop = 0;
-      }
 
       targetIndex = currentIndex - this.itemsInRow;
       if (this.buttons[targetIndex]) {
+        this.scrollTop(targetIndex);
         return targetIndex;
       } else {
-        return currentIndex;
+        var newTarget = (currentIndex - this.itemsInRow < 0) ? 0 : currentIndex - this.itemsInRow;
+        this.scrollTop(newTarget);
+        return newTarget;
       }
     } else {
       console.warn('unknown dir', dir);
+    }
+  },
+  
+  scrollTop: function (index) {
+    if (index < 8) {
+      (document.body || document.documentElement).scrollTop = 0;
     }
   },
 
@@ -69,43 +75,52 @@ window.Nav = {
       console.error('wtf');
     }
   },
+  
+
+  
+  FN: function (e) {
+
+    switch(e.keyCode) {
+      case 37: //left
+        Nav.goLeft();
+        e.preventDefault();
+        break;
+      case 38: //up
+        Nav.goUp();
+        e.preventDefault();
+        break;
+      case 39: //right
+        Nav.goRight();
+        e.preventDefault();
+        break;
+      case 40: //down
+        Nav.goDown();
+        e.preventDefault();
+        break;
+      case 13: //enter
+        Nav.enter();
+        break;
+    }
+  },
 
   init: function (selector, limit) {
     this.itemsInRow = limit;
-    console.log('selector', selector);
-    document.body.addEventListener('keydown', function (e) {
 
-      switch(e.keyCode) {
-        case 37: //left
-          Nav.goLeft();
-          e.preventDefault();
-          break;
-        case 38: //up
-          Nav.goUp();
-          e.preventDefault();
-          break;
-        case 39: //right
-          Nav.goRight();
-          e.preventDefault();
-          break;
-        case 40: //down
-          Nav.goDown();
-          e.preventDefault();
-          break;
-        case 13: //enter
-          Nav.enter();
-          break;
-      }
-    });
-
+    document.body.removeEventListener('keydown', this.FN);
+    document.body.addEventListener('keydown', this.FN);
+    
     var buttons = document.querySelectorAll(selector);
+    this.buttons = [];
+    Nav._currentActiveIndex = 0;
+    Nav._currentActiveNode = buttons[0];
     var arr = this.buttons;
     Array.prototype.forEach.call(buttons, function (b) {
+      b.classList.remove('active');
       arr.push(b);
     });
-
+    this.buttons = arr;
     // put the first one, active
-    this._activate(0);
+    this._activate(1);
   },
 
   _deactivate: function (node) {
@@ -113,7 +128,7 @@ window.Nav = {
   },
 
   _activate: function (id) {
-    console.log('activate', id)
+    console.log('ac', id)
     if (Nav._currentActiveNode) {
       this._deactivate(Nav._currentActiveNode);
     }
