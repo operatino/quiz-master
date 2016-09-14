@@ -580,6 +580,12 @@ tr .question-upcoming-notification.hidden {
   vertical-align: top;
   padding-right: 15px;
 }
+.create-page .create-actions button {
+  width: 100%;
+}
+.create-page .create-actions #add-question {
+  margin-bottom: 15px;
+}
 .create-page .add-question-form {
   display: inline-block;
   vertical-align: top;
