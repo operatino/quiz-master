@@ -5,12 +5,6 @@
     <title>Quiz Master!</title>
 
     <link rel="stylesheet" media="all" href="css/main.css">
-    <style>
-        .video-player {
-            width: 300px;
-            position: initial;
-        }
-    </style>
 </head>
 <body>
 
@@ -25,15 +19,14 @@
         <div class="create-top">
             <video autoplay id="video-player" class='video-player' src='http://d.pr/v/1cOql+'></video>
 
-            <div>
+            <div class="create-actions">
                 <div id="time">0:00</div>
                 <div id="add-question">Add question</div>
             </div>
 
-            <form id="add-question-form" class="hidden">
+            <form id="add-question-form" class="add-question-form" style="display: none;">
                 <div>
-                    <label for="question">Question</label>
-                    <input name="question-input" id="question-input" class="question-input" type="text" value="This is a test question" placeholder="What is the question?">
+                    <input name="question-input" id="question-input" type="text" placeholder="What is the question?">
                 </div>
                 <div>
                     <input name="answer1" id="answer1" type="text" placeholder="Answer 1">
@@ -62,7 +55,7 @@
         </div>
 
         <div class="create-bottom">
-            <table>
+            <table id="questions" class="questions">
                 <thead>
                     <tr>
                         <th>Time</th>
@@ -70,7 +63,7 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody id="questions" class="questions">
+                <tbody>
                 </tbody>
             </table>
         </div>
