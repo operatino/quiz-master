@@ -22,6 +22,8 @@ function Create() {
     this.$form = this.$el.find('#add-question-form');
     this.$questions = this.$el.find('#questions');
 
+    this.$videoEl.volume = 0;
+
     console.log(this.$el.find('#add-question'));
 
     //Init vid
