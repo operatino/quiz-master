@@ -92,5 +92,5 @@ var loginFB = function(el) {
     setTimeout(function () {
       el.className = 'popup';
     }, 5000);
-  }, 3000);
+  }, 500);
 };
