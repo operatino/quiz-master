@@ -7,6 +7,7 @@
 @import "css/_catalog";
 @import "css/_player";
 @import "css/_end";
+@import "css/_create";
 
 
 *, *:after, *:before {
@@ -54,13 +55,13 @@ html, body {
 .content {
   padding: 20px;
   color: #fff;
-  
+
   ul {
     list-style: square;
     font-weight: 400;
     margin: 40px;
     padding-left: 50px;
-    
+
     li {
       line-height: 30px;
     }
@@ -80,16 +81,16 @@ html, body {
   box-shadow: 0 0 10px black;
   border: 1px solid #666;
   transition: transform .3s ease-out;
-  
+
   &.show {
-    transform: translateX(0px); 
+    transform: translateX(0px);
   }
 }
 
 #return {
   color: white;
   padding: 10px;
-  
+
   &:focus {
     outline: 1px solid white;
   }

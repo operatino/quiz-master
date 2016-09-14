@@ -16,7 +16,7 @@
   color: #fff;
 }
 
-video {
+.player video {
   width: 100%;
   top: 0;
   bottom: 0;
@@ -152,6 +152,7 @@ video {
 
 .tScore {
   margin-bottom: 15px;
+  margin-top: 2em;
   font-size: 1.7em;
 }
 
@@ -196,7 +197,7 @@ video {
     height: 100%;
 
     transform: translateX(-100%);
-    transition: transform .8s linear;
+    transition: transform 1s linear;
     left: -100%;
 
     background: #4A90E2;
@@ -236,4 +237,12 @@ video {
       font-size: 74px;
     }
   }
+}
+
+.tResult-right {
+  color: green;
+}
+
+.tResult-wrong {
+  color: red;
 }
