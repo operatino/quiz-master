@@ -367,6 +367,7 @@ video {
 }
 .tScore {
   margin-bottom: 15px;
+  margin-top: 2em;
   font-size: 1.7em;
 }
 .qBar {
@@ -436,6 +437,12 @@ tr .question-upcoming-notification.hidden {
 .question-upcoming-notification .notification-circle .time {
   display: block;
   font-size: 74px;
+}
+.tResult-right {
+  color: green;
+}
+.tResult-wrong {
+  color: red;
 }
 .end-page {
   width: 100%;
