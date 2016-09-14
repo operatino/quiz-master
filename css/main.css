@@ -139,7 +139,7 @@ table {
 .logo {
   position: absolute;
   top: 0;
-  right: 15px;
+  right: 30px;
   bottom: 0;
   margin: auto;
   font: 0/0 'a';
@@ -505,6 +505,11 @@ tr .question-upcoming-notification.hidden {
   z-index: 100;
   color: #FFFFFF;
   margin: auto;
+}
+.bg-video {
+  width: 100%;
+  position: fixed;
+  opacity: 0.3;
 }
 .end--list {
   width: 50%;
