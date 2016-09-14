@@ -35,18 +35,18 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/catalog.js"></script>
-    
+
     <script>
     setTimeout(function() {
       document.querySelector('a.tile').focus();
     }, 1000);
     var logged = sessionStorage.getItem('logged');
-    
+
     if (logged) {
       document.getElementById('facebook').style.display = 'none';
       document.getElementById('login').style.display = 'block';
     }
-    
+
 
     </script>
 </body>
