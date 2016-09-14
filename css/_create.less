@@ -1,17 +1,40 @@
 .create-page {
   color: #fff;
-  background: #555;
+  background: #000;
   min-height: 650px;
   display: block;
+  font-size: 16px;
+
+  button {
+    background: #4A90E2;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-bottom: 2px;
+
+    border: none;
+    color: #fff;
+  }
+  #time {
+    margin-bottom:20px;
+  }
+  .select-correct {
+    margin-top: 5px;
+    display: inline-block;
+  }
+  .form-buttons {
+    text-align: right;
+    display: inline-block;
+    float: right;
+  }
 
   .video-player {
-    width: 300px;
+    width: 400px;
     display: inline-block;
     vertical-align: top;
     padding-right: 15px;
   }
   .create-actions {
-    width: 130px;
+    width: 150px;
     display: inline-block;
     vertical-align: top;
     padding-right: 15px;
@@ -21,6 +44,10 @@
     display: inline-block;
     vertical-align: top;
     width: 500px;
+
+    #answer-select {
+
+    }
 
     input[type=text] {
       width: 100%;
@@ -61,8 +88,12 @@
   padding: 20px 10px;
 }
 
+.create-top {
+  height: 250px;
+}
 
 .create-bottom {
   width: 100%;
-  background: rgba(0, 0, 0, .2);
+  min-height: 400px;
+  background: #2A2A2A;
 }
