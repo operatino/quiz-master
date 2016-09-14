@@ -33,7 +33,9 @@ function Create() {
 
     setInterval(function() {
       _this.$el.find('#time').html(_this.$videoEl.currentTime.toHHMMSS());
-    }, 1000);
+    }, 200);
+
+
 
     this.$el.find('#add-question').click(function(e) {
 
@@ -47,20 +49,55 @@ function Create() {
     this.$el.find('#save-form').click(function(e) {
       e.preventDefault();
       var q = {
-        question: _this.$el.find('input[name=question]').val(),
+        id: 'row' + new Date().getTime(),
+        question: _this.$el.find('input[name=question-input]').val(),
         time: _this.$videoEl.currentTime.toHHMMSS()
       }
+
+
+
       _this.addQuestion(q);
       _this.$form[0].reset();
       _this.$form.hide();
+
+      //remove-row
+/*      _this.$el.find('.remove-row').click(function(e) {
+        console.log('Click');
+        $(this).closest("tr").remove();
+      });*/
+
     });
 
+    this.$el.find('#cancel-form').click(function(e) {
+      e.preventDefault();
+      _this.$form[0].reset();
+      _this.$videoEl.play();
+      _this.$form.hide();
+    });
     console.log(this.$videoEl);
   }
 
   this.addQuestion = function(obj) {
-    _this.$questions.prepend('<tr><td>' + obj.time + '</td><td>' + obj.question + '</td><td><span>edit</span> - <span>remove</span></td></tr>')
 
+    if (obj.question.length > 1) {
+
+      _this.$questions.prepend('<tr data-question="' + JSON.stringify(obj) + '" class="' + obj.id + '"><td>' + obj.time + '</td><td>' + obj.question + '</td><td><span class="edit-row">edit</span> - <span class="remove-row">remove</span></td></tr>')
+
+      _this.$el.find('.' + obj.id).click(function(e) {
+        e.preventDefault();
+        $(this).closest("tr").remove();
+      });
+
+      _this.$el.find('.' + obj.id + ' .edit-row').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        _this.$videoEl.pause();
+
+        console.log('-->', obj.question);
+
+        _this.$form.show();
+      });
+    }
 
     _this.$videoEl.play();
   };

@@ -20,15 +20,15 @@
             <video autoplay id="video-player" class='video-player' src='http://d.pr/v/1cOql+'></video>
 
             <div class="create-actions">
-                <div id="time">0:00</div>
+                <div id="time">00:00:00</div>
                 <button id="add-question">Add question</button>
                 <button id="play">Play</button>
                 <button id="pause">Pause</button>
             </div>
 
-            <form id="add-question-form" class="add-question-form" class="hidden">
+            <form id="add-question-form" class="add-question-form" style="display: none;">
                 <div>
-                    <input name="question" id="question-input" type="text" placeholder="What is the question?">
+                    <input name="question-input" id="question-input" type="text" placeholder="What is the question?">
                 </div>
                 <div>
                     <input name="answer1" id="answer1" type="text" placeholder="Answer 1">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-buttons">
                     <button id="save-form">Save</button>
-                    <button>Cancel</button>
+                    <button id="cancel-form">Cancel</button>
                 </div>
             </form>
         </div>
@@ -93,12 +93,9 @@
         time: 10000
     }];
 
-    create.addQuestion({question: 'Lorem ipsum dolor sit amet, consectetur adipiscing bla?', time: '00:43'});
-    create.addQuestion({question: 'Lorem ipsum dolor sit amet, consectetur?', time: '00:03'});
-    create.addQuestion({question: 'Lorem ipsum dolor sit amet, consectetur adip?', time: '00:01'});
-
-
-
+    create.addQuestion({id: 'row' + (new Date().getTime() - 99), question: 'Lorem ipsum dolor sit amet, consectetur adip?', time: '00:03'});
+    create.addQuestion({id: 'row' + (new Date().getTime() - 100), question: 'Lorem ipsum dolor sit amet, consectetur?', time: '00:02'});
+    create.addQuestion({id: 'row' + (new Date().getTime() - 101), question: 'Lorem ipsum dolor sit amet, consectetur adipiscing bla?', time: '00:01'});
 
 </script>
 </body>
