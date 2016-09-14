@@ -55,6 +55,9 @@
   margin-bottom: 3px;
   font-size: 18px;
 }
+.create-page .bottom-buttons {
+  margin-top: 80px;
+}
 .create-page .questions {
   width: 100%;
 }
